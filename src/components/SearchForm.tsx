@@ -111,36 +111,43 @@ const SearchForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 dark:bg-blue-500/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-indigo-400/10 dark:bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-purple-400/10 dark:bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
+      </div>
+      
+      <div className="relative z-10 container mx-auto px-4 py-4">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-6"
+          className="text-center mb-4"
         >
-          <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent mb-4 leading-tight">
+          <h1 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent mb-3 leading-tight">
             {t('title')}
           </h1>
           
-          <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed mb-4 font-medium">
+          <p className="text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-3 font-medium">
             {t('subtitle')}
           </p>
 
           {/* Compact Features */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full border border-yellow-200/50 dark:border-yellow-700/50 backdrop-blur-xl">
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full border border-yellow-200/50 dark:border-yellow-700/50 backdrop-blur-xl">
               <Zap className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
-              <span className="text-xs font-semibold text-yellow-700 dark:text-yellow-300">Bulk Search</span>
+              <span className="text-xs font-medium text-yellow-700 dark:text-yellow-300">Bulk Search</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-green-500/10 to-emerald-500/10 dark:from-green-500/20 dark:to-emerald-500/20 rounded-full border border-green-200/50 dark:border-green-700/50 backdrop-blur-xl">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-green-500/10 to-emerald-500/10 dark:from-green-500/20 dark:to-emerald-500/20 rounded-full border border-green-200/50 dark:border-green-700/50 backdrop-blur-xl">
               <Target className="w-3 h-3 text-green-600 dark:text-green-400" />
-              <span className="text-xs font-semibold text-green-700 dark:text-green-300">Export Results</span>
+              <span className="text-xs font-medium text-green-700 dark:text-green-300">Export Results</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-xl">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-xl">
               <Shield className="w-3 h-3 text-purple-600 dark:text-purple-400" />
-              <span className="text-xs font-semibold text-purple-700 dark:text-purple-300">Real-time Results</span>
+              <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Real-time Results</span>
             </div>
           </div>
         </motion.div>
@@ -150,34 +157,34 @@ const SearchForm: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-6xl mx-auto mb-10"
+          className="max-w-5xl mx-auto mb-8"
         >
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl rounded-3xl p-10 border border-white/40 dark:border-slate-700/40 shadow-2xl shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-2xl transition-all duration-500">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl rounded-3xl p-6 border border-white/40 dark:border-slate-700/40 shadow-2xl shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-2xl transition-all duration-500">
               {/* Info Banner */}
-              <div className="flex items-start gap-6 p-8 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-3xl border border-blue-200/50 dark:border-blue-700/50 mb-10 backdrop-blur-xl">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Info className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl border border-blue-200/50 dark:border-blue-700/50 mb-6 backdrop-blur-xl">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Info className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-4 text-xl">
+                  <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">
                     {t('howTo.title')}
                   </h4>
-                  <div className="text-blue-700 dark:text-blue-300 space-y-2">
+                  <div className="text-blue-700 dark:text-blue-300 space-y-1.5 text-sm">
                     <p className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                       {t('howTo.step1')}
                     </p>
                     <p className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                       {t('howTo.step2')}
                     </p>
                     <p className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                       {t('howTo.step3')}
                     </p>
                     <p className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                       {t('howTo.description')}
                     </p>
                   </div>
@@ -185,8 +192,8 @@ const SearchForm: React.FC = () => {
               </div>
 
               {/* Textarea */}
-              <div className="relative mb-10">
-                <label className="block text-2xl font-bold text-slate-900 dark:text-white mb-6">
+              <div className="relative mb-6">
+                <label className="block text-xl font-bold text-slate-900 dark:text-white mb-4">
                   {t('domainPlaceholder').split('\n')[0]}
                 </label>
                 <div className="relative">
@@ -197,10 +204,10 @@ const SearchForm: React.FC = () => {
                     onFocus={() => trackFormInteraction('focus', 'tenant_search_form')}
                     onBlur={() => trackFormInteraction('blur', 'tenant_search_form')}
                     placeholder={t('domainPlaceholder')}
-                    className="w-full px-8 py-6 h-52 rounded-3xl border-2 border-slate-200/50 dark:border-slate-600/50 bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-500 text-lg leading-relaxed placeholder-slate-400 dark:placeholder-slate-500 font-mono backdrop-blur-xl shadow-inner"
+                    className="w-full px-6 py-4 h-40 rounded-2xl border-2 border-slate-200/50 dark:border-slate-600/50 bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-500 text-base leading-relaxed placeholder-slate-400 dark:placeholder-slate-500 font-mono backdrop-blur-xl shadow-inner"
                   />
-                  <div className="absolute bottom-6 right-6 flex items-center gap-3">
-                    <span className="text-sm text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/80 px-4 py-2 rounded-2xl backdrop-blur-xl font-medium">
+                  <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                    <span className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/80 px-3 py-1.5 rounded-xl backdrop-blur-xl font-medium">
                       <kbd className="font-semibold">Shift + Enter</kbd> for new line
                     </span>
                   </div>
@@ -208,11 +215,11 @@ const SearchForm: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col lg:flex-row gap-6">
+              <div className="flex flex-col lg:flex-row gap-4">
                 <motion.button
                   type="submit"
                   disabled={loading || !domains.trim()}
-                  className="flex-1 px-10 py-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 disabled:from-slate-400 disabled:to-slate-500 text-white rounded-3xl flex items-center justify-center gap-4 font-bold text-xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 disabled:cursor-not-allowed transition-all duration-500 border border-blue-500/20"
+                  className="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 disabled:from-slate-400 disabled:to-slate-500 text-white rounded-2xl flex items-center justify-center gap-3 font-bold text-lg shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 disabled:cursor-not-allowed transition-all duration-500 border border-blue-500/20"
                   whileHover={!loading && domains.trim() ? { scale: 1.02, y: -2 } : {}}
                   whileTap={!loading && domains.trim() ? { scale: 0.98 } : {}}
                 >
@@ -223,7 +230,7 @@ const SearchForm: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      <Search className="w-7 h-7" />
+                      <Search className="w-6 h-6" />
                       <span>{t('search')}</span>
                     </>
                   )}
@@ -234,7 +241,7 @@ const SearchForm: React.FC = () => {
                     data={results} 
                     filename="tenant-results"
                     variant="secondary"
-                    className="lg:w-auto px-10 py-6 rounded-3xl font-bold text-xl"
+                    className="lg:w-auto px-8 py-4 rounded-2xl font-bold text-lg"
                   />
                 )}
               </div>

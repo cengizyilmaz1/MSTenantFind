@@ -312,7 +312,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-12" role="main" aria-label="Main content">
+      <main className="pt-8" role="main" aria-label="Main content">
         {children}
       </main>
 
