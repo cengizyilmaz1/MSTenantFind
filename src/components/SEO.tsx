@@ -586,6 +586,25 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="format-detection" content="telephone=no,email=no,address=no" />
       <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       
+      {/* Layout Stability */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+      <meta name="color-scheme" content="light dark" />
+      <meta name="supported-color-schemes" content="light dark" />
+      
+      {/* Critical Resource Hints for Font Loading */}
+      <link 
+        rel="preload" 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" 
+        as="style" 
+        onLoad={() => {}} 
+      />
+      <noscript>
+        <link 
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" 
+        />
+      </noscript>
+      
       {/* Favicon and Icons */}
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

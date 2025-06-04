@@ -96,23 +96,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="absolute inset-0 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl"></div>
         
         <div className="relative max-w-8xl mx-auto px-8 lg:px-16">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16">
             
             {/* Logo Section - More Space */}
             <div className="flex items-center min-w-0 flex-1">
               <Link 
                 to="/" 
-                className="group flex items-center gap-4 py-3 transition-all duration-300"
+                className="group flex items-center gap-3 py-2 transition-all duration-300"
                 aria-label="Go to home page"
               >
-                <div className="relative p-3 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 transition-all duration-300">
-                  <Home className="h-7 w-7 text-blue-600 dark:text-blue-400 transition-transform duration-300" />
+                <div className="relative p-2.5 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 transition-all duration-300">
+                  <Home className="h-6 w-6 text-blue-600 dark:text-blue-400 transition-transform duration-300" />
                 </div>
                 <div className="hidden sm:block">
-                  <div className="text-xl font-bold bg-gradient-to-r from-slate-900 to-blue-700 dark:from-white dark:to-blue-200 bg-clip-text text-transparent">
+                  <div className="text-lg font-bold bg-gradient-to-r from-slate-900 to-blue-700 dark:from-white dark:to-blue-200 bg-clip-text text-transparent">
                     MS Tenant Finder
                   </div>
-                  <div className="text-sm text-slate-500 dark:text-slate-400 font-medium -mt-1">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium -mt-1">
                     Professional Tool
                   </div>
                 </div>
@@ -312,7 +312,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-16" role="main" aria-label="Main content">
+      <main className="pt-12" role="main" aria-label="Main content">
         {children}
       </main>
 
