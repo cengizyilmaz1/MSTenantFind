@@ -1,0 +1,339 @@
+{
+  "title": "Microsoft Tenant Finder Tool",
+  "subtitle": "Instantly discover Microsoft Azure and Microsoft 365 tenant information for any domain",
+  "metaDescription": "Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly.",
+  "pressEnter": "Press Enter to search or use Shift+Enter for new line",
+  "domainPlaceholder": "Enter domain names:\nexample: microsoft.com\ncompany.com, outlook.com",
+  "search": "Search",
+  "searching": "Searching...",
+  "loading": "Loading...",
+  "processing": "Processing...",
+  "download": "Download",
+  "downloadSuccess": "Results downloaded successfully",
+  "downloadError": "Error occurred while downloading",
+  "enterDomain": "Please enter a domain name",
+  "searchComplete": "Search completed",
+  "searchCompleteDetails": "Search completed for {{count}} domains",
+  "searchError": "An error occurred during search",
+  "networkError": "Network error occurred",
+  "error": "An error occurred",
+  "noResults": "No results found",
+  "invalidDomain": "Invalid domain name",
+  "rateLimitError": "Too many requests. Please wait and try again.",
+  "clear": "Clear",
+  "copy": "Copy",
+  "copied": "Copied!",
+  "copyError": "Copy failed",
+  "retry": "Retry",
+  "cancel": "Cancel",
+  "close": "Close",
+  "expand": "Expand",
+  "collapse": "Collapse",
+  "tenantInfo": {
+    "title": "Tenant Information",
+    "tenantId": "Tenant ID",
+    "tenantName": "Tenant Name",
+    "mxRecords": "MX Records",
+    "spfRecord": "SPF Record",
+    "copied": "Copied",
+    "notFound": "Not Found",
+    "verified": "Verified",
+    "unverified": "Unverified",
+    "status": "Status",
+    "lastUpdated": "Last Updated",
+    "details": "Details"
+  },
+  "spfInfo": {
+    "title": "SPF Record",
+    "allowedIps": "Allowed IPs",
+    "includeRecords": "Include Records",
+    "direct": "Direct",
+    "source": "Source",
+    "mechanism": "Mechanism",
+    "qualifier": "Qualifier"
+  },
+  "dnsInfo": {
+    "title": "DNS Information",
+    "aRecords": "A Records",
+    "cnameRecords": "CNAME Records",
+    "txtRecords": "TXT Records",
+    "nsRecords": "NS Records"
+  },
+  "whatIs": {
+    "title": "What is Microsoft Tenant?",
+    "description": "A Microsoft tenant is a dedicated instance of Azure AD that an organization receives when it signs up for Microsoft cloud services. It contains user accounts and configuration for Microsoft 365 or Azure services.",
+    "learnMore": "Learn More",
+    "secureAccess": {
+      "title": "Secure Access Control",
+      "description": "Your digital key that provides secure and controlled access to Microsoft services."
+    },
+    "resourceManagement": {
+      "title": "Resource Management",
+      "description": "Centrally manage all your Microsoft subscriptions and licenses."
+    },
+    "identityProtection": {
+      "title": "Identity Protection",
+      "description": "Advanced security features and compliance controls."
+    }
+  },
+  "howTo": {
+    "title": "How to Use?",
+    "step1": "Enter domain name",
+    "step2": "Click search button",
+    "step3": "View results",
+    "description": "Enter one or multiple domain names and discover Microsoft tenant information"
+  },
+  "features": {
+    "title": "Features",
+    "bulkSearch": {
+      "title": "Bulk Search",
+      "description": "Search multiple domains simultaneously"
+    },
+    "exportResults": {
+      "title": "Export Results",
+      "description": "Download results in JSON and CSV formats"
+    },
+    "offlineSupport": {
+      "title": "Offline Support",
+      "description": "Offline usage with PWA feature"
+    },
+    "multiLanguage": {
+      "title": "Multi-Language",
+      "description": "Turkish and English language support"
+    },
+    "realtimeResults": {
+      "title": "Real-time Results",
+      "description": "Get instant access to current tenant information"
+    }
+  },
+  "language": {
+    "title": "Language",
+    "turkish": "Türkçe",
+    "english": "English",
+    "switchTo": "Switch to {{language}}"
+  },
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "documentation": "Documentation",
+    "contact": "Contact",
+    "author": "Developer",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
+  },
+  "footer": {
+    "description": "Professional tool developed for discovering Microsoft Azure and Microsoft 365 tenant information",
+    "quickLinks": "Quick Links",
+    "legalLinks": "Legal Links",
+    "socialLinks": "Social Media",
+    "copyright": "© 2024 All rights reserved."
+  },
+  "accessibility": {
+    "skipToMain": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "loading": "Content loading",
+    "searchResults": "Search results",
+    "languageSwitch": "Switch language"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "message": "The page you are looking for could not be found.",
+      "backHome": "Back to Home"
+    },
+    "500": {
+      "title": "Server Error",
+      "message": "An error occurred. Please try again later.",
+      "retry": "Retry"
+    },
+    "offline": {
+      "title": "No Connection",
+      "message": "Please check your internet connection.",
+      "cached": "Showing cached content"
+    },
+    "timeout": "Operation timed out",
+    "unknownError": "Unknown error occurred"
+  },
+  "pwa": {
+    "installPrompt": "Would you like to install this app on your device?",
+    "install": "Install",
+    "dismiss": "Not Now",
+    "updateAvailable": "New version available",
+    "update": "Update",
+    "later": "Later"
+  },
+  "analytics": {
+    "cookieConsent": "This site uses cookies to improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn More"
+  },
+  "seo": {
+    "homeTitle": "Find your Microsoft Azure and Office 365 tenant ID - What is my tenant ID?",
+    "homeDescription": "Get your organization's Microsoft Azure and Office 365 tenant ID by domain name. Professional tenant finder tool for Azure AD and Microsoft 365.",
+    "keywords": "Microsoft Azure, Office 365, tenant ID, find tenant ID, what is my tenant ID, get tenant ID by domain name, organization tenant ID, Azure AD tenant, Microsoft 365 tenant, Office 365 tenant ID, Azure tenant discovery"
+  },
+  "export": {
+    "title": "Export Options",
+    "subtitle": "Save results in different formats",
+    "jsonDescription": "Detailed data in JSON format",
+    "csvDescription": "Excel-compatible CSV format",
+    "copyJsonDescription": "Copy JSON data to clipboard",
+    "copyCsvDescription": "Copy CSV data to clipboard"
+  },
+  "status": {
+    "found": "Found",
+    "notFound": "Not Found", 
+    "searching": "Searching",
+    "processing": "Processing"
+  },
+  "blog": {
+    "pageTitle": "Microsoft Tenant & Azure ID Blog - Expert Guides and Tutorials",
+    "pageDescription": "Expert guides, tutorials, and insights about Microsoft Azure, Office 365, tenant management, and identity solutions. Get your organization's tenant ID and more.",
+    "keywords": "Microsoft tenant blog, Azure AD tutorials, Office 365 guides, tenant ID finder, Microsoft identity management",
+    "badge": "Knowledge Hub",
+    "title": "Expert Guides & Tutorials",
+    "subtitle": "Comprehensive guides about Microsoft Azure, Office 365, tenant management, and identity solutions",
+    "minRead": "min read",
+    "readMore": "Read More",
+    "readArticle": "Read Article",
+    "backToBlog": "Back to Blog",
+    "share": "Share",
+    "author": "Author",
+    "published": "Published",
+    "readTime": "Read time",
+    "category": "Category",
+    "relatedArticles": "Related Articles",
+    "relatedSubtitle": "Continue exploring these topics",
+    "featured": {
+      "title": "Featured Articles",
+      "subtitle": "Our most popular and comprehensive guides",
+      "badge": "Featured"
+    },
+    "allArticles": {
+      "title": "All Articles",
+      "subtitle": "Browse our complete collection of guides and tutorials"
+    },
+    "cta": {
+      "title": "Ready to Find Your Microsoft Tenant ID?",
+      "description": "Try our free Microsoft Tenant Finder Tool to instantly discover your organization's tenant ID, MX records, and SPF information.",
+      "button": "Try the Tool Now"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is important to us. Learn how we handle your data.",
+    "description": "Privacy policy for Microsoft Tenant Finder tool",
+    "dataCollection": {
+      "title": "Data Collection",
+      "content": "We do not collect personal data. All searches are performed client-side."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "We use essential cookies for language and theme preferences."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "content": "We use Google Analytics with anonymized IPs to understand usage patterns."
+    },
+    "security": {
+      "title": "Security",
+      "content": "All connections are encrypted and we follow security best practices."
+    },
+    "contact": {
+      "title": "Questions?",
+      "description": "If you have any questions about this privacy policy, please contact us.",
+      "button": "Contact Us"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "subtitle": "Please read these terms carefully before using our service.",
+    "description": "Terms of service for Microsoft Tenant Finder tool",
+    "usage": {
+      "title": "Usage Terms",
+      "content": "This tool is provided free of charge for legitimate business purposes only."
+    },
+    "limitations": {
+      "title": "Limitations",
+      "content": "We are not responsible for the accuracy of results or any misuse of the information."
+    },
+    "responsibility": {
+      "title": "User Responsibility",
+      "content": "Users must comply with Microsoft terms of service and applicable laws."
+    },
+    "liability": {
+      "title": "Liability",
+      "content": "This service is provided \"as is\" without warranties of any kind."
+    },
+    "important": {
+      "title": "Important Notice",
+      "description": "By using this service, you agree to these terms. If you do not agree, please do not use the service."
+    },
+    "lastUpdated": "Last updated: December 2024"
+  },
+  "about": {
+    "pageTitle": "About Cengiz YILMAZ | Microsoft MVP & MCT",
+    "pageDescription": "Learn about Cengiz YILMAZ, Microsoft MVP and Certified Trainer. Expert in Exchange Server, Microsoft 365, Active Directory.",
+    "title": "Hello, I'm Cengiz YILMAZ",
+    "subtitle": "Microsoft MVP & Microsoft Certified Trainer",
+    "description": "I have been actively working in the IT industry since 2015 and dealing with Microsoft technologies. I have Microsoft MVP (Most Valuable Professional) and Microsoft Certified Trainer (MCT) titles.",
+    "experience": "In IT industry since 2015",
+    "location": "Turkey",
+    "expertise": {
+      "title": "My Professional Career",
+      "subtitle": "Areas of Expertise",
+      "exchangeServer": {
+        "title": "Microsoft Exchange Server & Exchange Online",
+        "description": "Extensive experience in designing, optimizing and managing mail infrastructures."
+      },
+      "microsoft365": {
+        "title": "Microsoft 365",
+        "description": "Expert level knowledge in integration and configuration of productivity tools."
+      },
+      "activeDirectory": {
+        "title": "Active Directory",
+        "description": "Installation and management of reliable user and resource management systems."
+      },
+      "powershell": {
+        "title": "PowerShell",
+        "description": "Powerful script writing and system management for automation processes."
+      }
+    },
+    "achievements": {
+      "title": "Certifications & Achievements",
+      "mvp": {
+        "title": "Microsoft MVP",
+        "subtitle": "Most Valuable Professional",
+        "description": "Prestigious title recognized for community contribution and technical expertise in Microsoft technologies.",
+        "year": "2020-2024"
+      },
+      "mct": {
+        "title": "Microsoft Certified Trainer",
+        "subtitle": "MCT",
+        "description": "Certified trainer title authorized to deliver Microsoft official curriculum.",
+        "year": "2018-2024"
+      }
+    },
+    "goals": {
+      "title": "My Goal",
+      "description": "Sharing my technological knowledge and experience to guide organizations and individuals in their digital transformation processes. As someone with Microsoft MVP and Microsoft Certified Trainer (MCT) titles, I continuously follow developments in the technology world and integrate innovations into business processes.",
+      "digitalTransformation": {
+        "title": "Digital Transformation Guidance",
+        "description": "Providing strategic consultancy to organizations and individuals in their digital transformation processes."
+      },
+      "technologyIntegration": {
+        "title": "Technology Integration",
+        "description": "Integrating innovations in the technology world into business processes and increasing efficiency."
+      }
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "description": "Do you have questions about Microsoft technologies or do you need training? Don't hesitate to contact me!",
+      "sendEmail": "Send Email",
+      "visitWebsite": "Visit Website"
+    }
+  }
+} 

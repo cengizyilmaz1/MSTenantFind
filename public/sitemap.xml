@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Main page - English (default) -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/" />
+  </url>
+
+  <!-- Main page - Turkish -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/?lang=tr</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/" />
+  </url>
+
+  <!-- Blog Main Page - English -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog"/>
+  </url>
+
+  <!-- Blog Main Page - Turkish -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog?lang=tr</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog"/>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/what-is-my-microsoft-tenant-id-how-to-find-it</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/what-is-my-microsoft-tenant-id-how-to-find-it"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/microsoft-tenant-id-nedir-nasil-bulunur"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/what-is-my-microsoft-tenant-id-how-to-find-it"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/microsoft-tenant-id-nedir-nasil-bulunur</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/what-is-my-microsoft-tenant-id-how-to-find-it"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/microsoft-tenant-id-nedir-nasil-bulunur"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/what-is-my-microsoft-tenant-id-how-to-find-it"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/complete-guide-microsoft-azure-tenant-discovery</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/complete-guide-microsoft-azure-tenant-discovery"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/microsoft-azure-tenant-kesfi-kapsamli-rehber"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/complete-guide-microsoft-azure-tenant-discovery"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/microsoft-azure-tenant-kesfi-kapsamli-rehber</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/complete-guide-microsoft-azure-tenant-discovery"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/microsoft-azure-tenant-kesfi-kapsamli-rehber"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/complete-guide-microsoft-azure-tenant-discovery"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-difference</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-difference"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-farklari"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-difference"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-farklari</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-difference"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-farklari"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/office-365-tenant-id-vs-azure-ad-tenant-difference"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/how-to-get-organization-tenant-id-by-domain-name</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/how-to-get-organization-tenant-id-by-domain-name"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/organizasyon-tenant-id-domain-adiyla-nasil-alinir"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/how-to-get-organization-tenant-id-by-domain-name"/>
+  </url>
+
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/blog/organizasyon-tenant-id-domain-adiyla-nasil-alinir</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/blog/how-to-get-organization-tenant-id-by-domain-name"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/blog/organizasyon-tenant-id-domain-adiyla-nasil-alinir"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/blog/how-to-get-organization-tenant-id-by-domain-name"/>
+  </url>
+
+  <!-- About Page - English -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir"/>
+  </url>
+
+  <!-- About Page - Turkish -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir?lang=tr</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/cengizyilmazkimdir"/>
+  </url>
+
+  <!-- Privacy Policy - English -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/privacy</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/privacy?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/privacy"/>
+  </url>
+
+  <!-- Privacy Policy - Turkish -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/privacy?lang=tr</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/privacy?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/privacy"/>
+  </url>
+
+  <!-- Terms of Service - English -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/terms</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/terms"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/terms?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/terms"/>
+  </url>
+
+  <!-- Terms of Service - Turkish -->
+  <url>
+    <loc>https://tenant-find.cengizyilmaz.net/terms?lang=tr</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net/terms"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tenant-find.cengizyilmaz.net/terms?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tenant-find.cengizyilmaz.net/terms"/>
+  </url>
+</urlset>

@@ -1,0 +1,355 @@
+{
+  "title": "Microsoft Tenant Bulma Aracı",
+  "subtitle": "Herhangi bir domain adının Microsoft Azure ve Microsoft 365 tenant bilgilerini anında keşfedin",
+  "metaDescription": "Microsoft MVP Cengiz YILMAZ tarafından geliştirilen profesyonel Microsoft Azure ve Microsoft 365 kiracı arama aracı. Kiracı ID'lerini anında bulun.",
+  "pressEnter": "Aramak için Enter'a basın veya yeni satır için Shift+Enter kullanın",
+  "domainPlaceholder": "Domain adlarını girin:\nörnek: microsoft.com\nbirket.com, outlook.com",
+  "search": "Ara",
+  "searching": "Aranıyor...",
+  "loading": "Yükleniyor...",
+  "processing": "İşleniyor...",
+  "download": "İndir",
+  "downloadSuccess": "Sonuçlar başarıyla indirildi",
+  "downloadError": "İndirme sırasında hata oluştu",
+  "enterDomain": "Lütfen bir domain adı girin",
+  "searchComplete": "Arama tamamlandı",
+  "searchCompleteDetails": "{{count}} domain için arama tamamlandı",
+  "searchError": "Arama sırasında bir hata oluştu",
+  "networkError": "Ağ hatası oluştu",
+  "error": "Hata oluştu",
+  "noResults": "Sonuç bulunamadı",
+  "invalidDomain": "Geçersiz domain adı",
+  "rateLimitError": "Çok fazla istek. Lütfen bekleyin ve tekrar deneyin.",
+  "clear": "Temizle",
+  "copy": "Kopyala",
+  "copied": "Kopyalandı!",
+  "copyError": "Kopyalama başarısız",
+  "retry": "Tekrar Dene",
+  "cancel": "İptal",
+  "close": "Kapat",
+  "expand": "Genişlet",
+  "collapse": "Daralt",
+  "export": {
+    "title": "Dışa Aktarma Seçenekleri",
+    "subtitle": "Sonuçları farklı formatlarda kaydedin",
+    "jsonDescription": "JSON formatında detaylı veri",
+    "csvDescription": "Excel uyumlu CSV formatı",
+    "copyJsonDescription": "JSON verisini panoya kopyala",
+    "copyCsvDescription": "CSV verisini panoya kopyala"
+  },
+  "tenantInfo": {
+    "title": "Tenant Bilgileri",
+    "tenantId": "Tenant ID",
+    "tenantName": "Tenant Adı",
+    "mxRecords": "MX Kayıtları",
+    "spfRecord": "SPF Kaydı",
+    "copied": "Kopyalandı",
+    "notFound": "Bulunamadı",
+    "verified": "Doğrulandı",
+    "unverified": "Doğrulanmadı",
+    "status": "Durum",
+    "lastUpdated": "Son Güncelleme",
+    "details": "Detaylar"
+  },
+  "spfInfo": {
+    "title": "SPF Kaydı",
+    "allowedIps": "İzin Verilen IP'ler",
+    "includeRecords": "Include Kayıtları",
+    "direct": "Doğrudan",
+    "source": "Kaynak",
+    "mechanism": "Mekanizma",
+    "qualifier": "Niteleyici"
+  },
+  "dnsInfo": {
+    "title": "DNS Bilgileri",
+    "aRecords": "A Kayıtları",
+    "cnameRecords": "CNAME Kayıtları",
+    "txtRecords": "TXT Kayıtları",
+    "nsRecords": "NS Kayıtları"
+  },
+  "whatIs": {
+    "title": "Microsoft Tenant Nedir?",
+    "description": "Microsoft tenant, bir organizasyonun Microsoft bulut servislerine kaydolduğunda aldığı özel bir Azure AD örneğidir. Microsoft 365 veya Azure servisleri için kullanıcı hesaplarını ve yapılandırmayı içerir.",
+    "learnMore": "Daha Fazla Bilgi",
+    "secureAccess": {
+      "title": "Güvenli Erişim Kontrolü",
+      "description": "Microsoft servislerine güvenli ve kontrollü erişim sağlayan dijital anahtarınız."
+    },
+    "resourceManagement": {
+      "title": "Kaynak Yönetimi",
+      "description": "Tüm Microsoft aboneliklerinizi ve lisanslarınızı merkezi olarak yönetin."
+    },
+    "identityProtection": {
+      "title": "Kimlik Koruması",
+      "description": "Gelişmiş güvenlik özellikleri ve uyumluluk kontrolleri."
+    }
+  },
+  "howTo": {
+    "title": "Nasıl Kullanılır?",
+    "step1": "Domain adını girin",
+    "step2": "Ara butonuna tıklayın",
+    "step3": "Sonuçları görüntüleyin",
+    "description": "Bir veya birden fazla domain adını girin ve Microsoft tenant bilgilerini keşfedin",
+    "videoTitle": "Video Rehber",
+    "steps": {
+      "title": "Kullanım Adımları",
+      "step1": "Domain adınızı (örn: sirket.com) yukarıdaki arama kutusuna girin.",
+      "step2": "Tenant ID'yi aramak için arama butonuna tıklayın.",
+      "step3": "Tenant ID'nizi ve diğer ilgili bilgileri sonuçlarda görüntüleyin.",
+      "step4": "Sonuçları CSV formatında indirebilir veya kopyalayabilirsiniz."
+    },
+    "tips": {
+      "title": "İpuçları",
+      "tip1": "Birden fazla domain'i aynı anda arayabilirsiniz",
+      "tip2": "Sonuçları paylaşmak için URL'yi kopyalayın",
+      "tip3": "Offline kullanım için PWA olarak yükleyin"
+    }
+  },
+  "features": {
+    "title": "Özellikler",
+    "bulkSearch": {
+      "title": "Toplu Arama",
+      "description": "Birden fazla domain'i aynı anda arayın"
+    },
+    "exportResults": {
+      "title": "Sonuçları Dışa Aktar",
+      "description": "JSON ve CSV formatında sonuçları indirin"
+    },
+    "offlineSupport": {
+      "title": "Offline Destek",
+      "description": "PWA özelliği ile offline kullanım"
+    },
+    "multiLanguage": {
+      "title": "Çoklu Dil",
+      "description": "Türkçe ve İngilizce dil desteği"
+    },
+    "realtimeResults": {
+      "title": "Gerçek Zamanlı Sonuçlar",
+      "description": "Anında güncel tenant bilgilerine erişin"
+    }
+  },
+  "language": {
+    "title": "Dil",
+    "turkish": "Türkçe",
+    "english": "English",
+    "switchTo": "{{language}} diline geç"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "blog": "Blog",
+    "about": "Hakkında",
+    "documentation": "Dokümantasyon",
+    "contact": "İletişim",
+    "author": "Geliştirici",
+    "terms": "Kullanım Şartları",
+    "privacy": "Gizlilik Politikası"
+  },
+  "footer": {
+    "description": "Microsoft Azure ve Microsoft 365 tenant bilgilerini keşfetmek için geliştirilmiş profesyonel araç",
+    "quickLinks": "Hızlı Bağlantılar",
+    "legalLinks": "Yasal Bağlantılar",
+    "socialLinks": "Sosyal Medya",
+    "copyright": "© 2024 Tüm hakları saklıdır.",
+    "madeWith": "❤️ ile yapılmıştır",
+    "version": "Sürüm {{version}}"
+  },
+  "accessibility": {
+    "skipToMain": "Ana içeriğe geç",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "loading": "İçerik yükleniyor",
+    "searchResults": "Arama sonuçları",
+    "languageSwitch": "Dil değiştir"
+  },
+  "errors": {
+    "404": {
+      "title": "Sayfa Bulunamadı",
+      "message": "Aradığınız sayfa bulunamadı.",
+      "backHome": "Ana Sayfaya Dön"
+    },
+    "500": {
+      "title": "Sunucu Hatası",
+      "message": "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+      "retry": "Tekrar Dene"
+    },
+    "offline": {
+      "title": "Bağlantı Yok",
+      "message": "İnternet bağlantınızı kontrol edin.",
+      "cached": "Önbelleğe alınmış içerik gösteriliyor"
+    },
+    "timeout": "İşlem zaman aşımına uğradı",
+    "unknownError": "Bilinmeyen hata oluştu"
+  },
+  "pwa": {
+    "installPrompt": "Bu uygulamayı cihazınıza yüklemek ister misiniz?",
+    "install": "Yükle",
+    "dismiss": "Şimdi Değil",
+    "updateAvailable": "Yeni sürüm mevcut",
+    "update": "Güncelle",
+    "later": "Sonra"
+  },
+  "analytics": {
+    "cookieConsent": "Bu site deneyiminizi iyileştirmek için çerezler kullanır.",
+    "accept": "Kabul Et",
+    "decline": "Reddet",
+    "learnMore": "Daha Fazla Bilgi"
+  },
+  "seo": {
+    "homeTitle": "Microsoft Azure ve Office 365 tenant ID'nizi bulun - Tenant ID'im nedir?",
+    "homeDescription": "Domain adından organizasyonunuzun Microsoft Azure ve Office 365 tenant ID'sini öğrenin. Azure AD ve Microsoft 365 için profesyonel tenant bulma aracı.",
+    "keywords": "Microsoft Azure, Office 365, tenant ID, tenant ID bulma, tenant ID'im nedir, domain adından tenant ID alma, organizasyon tenant ID, Azure AD tenant, Microsoft 365 tenant, Office 365 tenant ID, Azure tenant keşfi"
+  },
+  "status": {
+    "found": "Bulundu",
+    "notFound": "Bulunamadı",
+    "searching": "Aranıyor",
+    "processing": "İşleniyor"
+  },
+  "blog": {
+    "pageTitle": "Microsoft Tenant ve Azure ID Blog - Uzman Rehberleri ve Eğitimler",
+    "pageDescription": "Microsoft Azure, Office 365, tenant yönetimi ve kimlik çözümleri hakkında uzman rehberleri, eğitimler ve içgörüler. Organizasyonunuzun tenant ID'sini öğrenin ve daha fazlası.",
+    "keywords": "Microsoft tenant blog, Azure AD eğitimleri, Office 365 rehberleri, tenant ID bulucu, Microsoft kimlik yönetimi",
+    "badge": "Bilgi Merkezi",
+    "title": "Uzman Rehberleri ve Eğitimler",
+    "subtitle": "Microsoft Azure, Office 365, tenant yönetimi ve kimlik çözümleri hakkında kapsamlı rehberler",
+    "minRead": "dk okuma",
+    "readMore": "Devamını Oku",
+    "readArticle": "Makaleyi Oku",
+    "backToBlog": "Blog'a Dön",
+    "share": "Paylaş",
+    "author": "Yazar",
+    "published": "Yayınlandı",
+    "readTime": "Okuma süresi",
+    "category": "Kategori",
+    "relatedArticles": "İlgili Makaleler",
+    "relatedSubtitle": "Bu konuları keşfetmeye devam edin",
+    "featured": {
+      "title": "Öne Çıkan Makaleler",
+      "subtitle": "En popüler ve kapsamlı rehberlerimiz",
+      "badge": "Öne Çıkan"
+    },
+    "allArticles": {
+      "title": "Tüm Makaleler",
+      "subtitle": "Rehber ve eğitimlerimizin tam koleksiyonuna göz atın"
+    },
+    "cta": {
+      "title": "Microsoft Tenant ID'nizi Bulmaya Hazır mısınız?",
+      "description": "Organizasyonunuzun tenant ID'sini, MX kayıtlarını ve SPF bilgilerini anında keşfetmek için ücretsiz Microsoft Tenant Bulucu Aracımızı deneyin.",
+      "button": "Aracı Şimdi Deneyin"
+    }
+  },
+  "privacy": {
+    "title": "Gizlilik Politikası",
+    "subtitle": "Gizliliğiniz bizim için önemlidir. Verilerinizi nasıl ele aldığımızı öğrenin.",
+    "description": "Microsoft Tenant Bulucu aracı için gizlilik politikası",
+    "dataCollection": {
+      "title": "Veri Toplama",
+      "content": "Kişisel veri toplamıyoruz. Tüm aramalar istemci tarafında gerçekleştirilir."
+    },
+    "cookies": {
+      "title": "Çerezler",
+      "content": "Dil ve tema tercihleri için gerekli çerezleri kullanırız."
+    },
+    "analytics": {
+      "title": "Analitik",
+      "content": "Kullanım desenlerini anlamak için anonimleştirilmiş IP'lerle Google Analytics kullanırız."
+    },
+    "security": {
+      "title": "Güvenlik",
+      "content": "Tüm bağlantılar şifrelenir ve güvenlik en iyi uygulamalarını takip ederiz."
+    },
+    "contact": {
+      "title": "Sorularınız mı var?",
+      "description": "Bu gizlilik politikası hakkında sorularınız varsa lütfen bizimle iletişime geçin.",
+      "button": "İletişime Geçin"
+    }
+  },
+  "terms": {
+    "title": "Kullanım Şartları",
+    "subtitle": "Lütfen hizmetimizi kullanmadan önce bu şartları dikkatlice okuyun.",
+    "description": "Microsoft Tenant Bulucu aracı için kullanım şartları",
+    "usage": {
+      "title": "Kullanım Koşulları",
+      "content": "Bu araç yalnızca meşru iş amaçları için ücretsiz olarak sağlanmaktadır."
+    },
+    "limitations": {
+      "title": "Sınırlamalar",
+      "content": "Sonuçların doğruluğundan veya bilgilerin kötüye kullanılmasından sorumlu değiliz."
+    },
+    "responsibility": {
+      "title": "Kullanıcı Sorumluluğu",
+      "content": "Kullanıcılar Microsoft hizmet şartlarına ve geçerli yasalara uymalıdır."
+    },
+    "liability": {
+      "title": "Sorumluluk",
+      "content": "Bu hizmet herhangi bir garanti olmaksızın \"olduğu gibi\" sağlanır."
+    },
+    "important": {
+      "title": "Önemli Uyarı",
+      "description": "Bu hizmeti kullanarak bu şartları kabul etmiş olursunuz. Kabul etmiyorsanız lütfen hizmeti kullanmayın."
+    },
+    "lastUpdated": "Son güncelleme: Aralık 2024"
+  },
+  "about": {
+    "pageTitle": "Cengiz YILMAZ Hakkında | Microsoft MVP & MCT",
+    "pageDescription": "Microsoft MVP ve Certified Trainer Cengiz YILMAZ hakkında bilgi edinin. Exchange Server, Microsoft 365, Active Directory uzmanı.",
+    "title": "Merhaba, Ben Cengiz YILMAZ",
+    "subtitle": "Microsoft MVP & Microsoft Certified Trainer",
+    "description": "2015 yılından bu yana BT sektöründe aktif olarak çalışıyor ve Microsoft teknolojileriyle ilgileniyorum. Microsoft MVP (Most Valuable Professional) ve Microsoft Certified Trainer (MCT) unvanlarına sahibim.",
+    "experience": "2015'ten beri BT sektöründe",
+    "location": "Türkiye",
+    "expertise": {
+      "title": "Profesyonel Kariyerim",
+      "subtitle": "Uzmanlık Alanlarım",
+      "exchangeServer": {
+        "title": "Microsoft Exchange Server & Exchange Online",
+        "description": "Mail altyapılarının tasarımı, optimizasyonu ve yönetimi konularında geniş deneyim."
+      },
+      "microsoft365": {
+        "title": "Microsoft 365",
+        "description": "Verimlilik araçlarının entegrasyonu ve yapılandırılması alanında uzman seviye bilgi."
+      },
+      "activeDirectory": {
+        "title": "Active Directory",
+        "description": "Güvenilir kullanıcı ve kaynak yönetimi sistemlerinin kurulumu ve yönetimi."
+      },
+      "powershell": {
+        "title": "PowerShell",
+        "description": "Otomasyon süreçleri için güçlü script yazımı ve sistem yönetimi."
+      }
+    },
+    "achievements": {
+      "title": "Sertifikalar & Başarılar",
+      "mvp": {
+        "title": "Microsoft MVP",
+        "subtitle": "Most Valuable Professional",
+        "description": "Microsoft teknolojileri alanında topluma katkı ve teknik uzmanlık ile tanınan prestijli unvan.",
+        "year": "2020-2024"
+      },
+      "mct": {
+        "title": "Microsoft Certified Trainer",
+        "subtitle": "MCT",
+        "description": "Microsoft resmi müfredatını sunma yetkisine sahip sertifikalı eğitmen unvanı.",
+        "year": "2018-2024"
+      }
+    },
+    "goals": {
+      "title": "Hedefim",
+      "description": "Teknolojik bilgi ve deneyimlerimi paylaşarak, kurumların ve bireylerin dijital dönüşüm süreçlerine rehberlik etmek. Microsoft MVP ve Microsoft Certified Trainer (MCT) unvanlarına sahip biri olarak, teknoloji dünyasındaki gelişmeleri sürekli takip ediyor ve yenilikleri iş süreçlerine entegre ediyorum.",
+      "digitalTransformation": {
+        "title": "Dijital Dönüşüm Rehberliği",
+        "description": "Kurumların ve bireylerin dijital dönüşüm süreçlerine stratejik danışmanlık sağlamak."
+      },
+      "technologyIntegration": {
+        "title": "Teknoloji Entegrasyonu",
+        "description": "Teknoloji dünyasındaki yenilikleri iş süreçlerine entegre etmek ve verimlilik artırmak."
+      }
+    },
+    "contact": {
+      "title": "İletişime Geçin",
+      "description": "Microsoft teknolojileri hakkında sorularınız var mı veya eğitim ihtiyacınız mı var? Benimle iletişime geçmekten çekinmeyin!",
+      "sendEmail": "E-posta Gönder",
+      "visitWebsite": "Web Sitesini Ziyaret Et"
+    }
+  }
+} 
