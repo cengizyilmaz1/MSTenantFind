@@ -157,34 +157,34 @@ const SearchForm: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-5xl mx-auto mb-8"
+          className="max-w-6xl mx-auto mb-12"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl rounded-3xl p-6 border border-white/40 dark:border-slate-700/40 shadow-2xl shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-2xl transition-all duration-500">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-2xl rounded-3xl p-8 border border-white/40 dark:border-slate-700/40 shadow-2xl shadow-blue-500/10 dark:shadow-blue-500/20 hover:shadow-2xl transition-all duration-500">
               {/* Info Banner */}
-              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl border border-blue-200/50 dark:border-blue-700/50 mb-6 backdrop-blur-xl">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Info className="w-5 h-5 text-white" />
+              <div className="flex items-start gap-6 p-8 bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-3xl border border-blue-200/60 dark:border-blue-700/60 mb-8 backdrop-blur-xl">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Info className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">
+                  <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-4 text-xl">
                     {t('howTo.title')}
                   </h4>
-                  <div className="text-blue-700 dark:text-blue-300 space-y-1.5 text-sm">
-                    <p className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                  <div className="text-blue-700 dark:text-blue-300 space-y-2 text-base">
+                    <p className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                       {t('howTo.step1')}
                     </p>
-                    <p className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                    <p className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                       {t('howTo.step2')}
                     </p>
-                    <p className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                    <p className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                       {t('howTo.step3')}
                     </p>
-                    <p className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                    <p className="flex items-center gap-3">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                       {t('howTo.description')}
                     </p>
                   </div>
@@ -192,8 +192,8 @@ const SearchForm: React.FC = () => {
               </div>
 
               {/* Textarea */}
-              <div className="relative mb-6">
-                <label className="block text-xl font-bold text-slate-900 dark:text-white mb-4">
+              <div className="relative mb-8">
+                <label className="block text-2xl font-bold text-slate-900 dark:text-white mb-6">
                   {t('domainPlaceholder').split('\n')[0]}
                 </label>
                 <div className="relative">
@@ -204,10 +204,10 @@ const SearchForm: React.FC = () => {
                     onFocus={() => trackFormInteraction('focus', 'tenant_search_form')}
                     onBlur={() => trackFormInteraction('blur', 'tenant_search_form')}
                     placeholder={t('domainPlaceholder')}
-                    className="w-full px-6 py-4 h-40 rounded-2xl border-2 border-slate-200/50 dark:border-slate-600/50 bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-500 text-base leading-relaxed placeholder-slate-400 dark:placeholder-slate-500 font-mono backdrop-blur-xl shadow-inner"
+                    className="w-full px-8 py-6 h-48 rounded-3xl border-2 border-slate-200/60 dark:border-slate-600/60 bg-white/90 dark:bg-slate-900/90 text-slate-900 dark:text-white focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-500 text-lg leading-relaxed placeholder-slate-400 dark:placeholder-slate-500 font-mono backdrop-blur-xl shadow-inner"
                   />
-                  <div className="absolute bottom-4 right-4 flex items-center gap-2">
-                    <span className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/80 px-3 py-1.5 rounded-xl backdrop-blur-xl font-medium">
+                  <div className="absolute bottom-6 right-6 flex items-center gap-3">
+                    <span className="text-sm text-slate-500 dark:text-slate-400 bg-slate-100/90 dark:bg-slate-800/90 px-4 py-2 rounded-2xl backdrop-blur-xl font-medium">
                       <kbd className="font-semibold">Shift + Enter</kbd> for new line
                     </span>
                   </div>
@@ -215,11 +215,11 @@ const SearchForm: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col lg:flex-row gap-4">
+              <div className="flex flex-col lg:flex-row gap-6">
                 <motion.button
                   type="submit"
                   disabled={loading || !domains.trim()}
-                  className="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 disabled:from-slate-400 disabled:to-slate-500 text-white rounded-2xl flex items-center justify-center gap-3 font-bold text-lg shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 disabled:cursor-not-allowed transition-all duration-500 border border-blue-500/20"
+                  className="flex-1 px-10 py-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 disabled:from-slate-400 disabled:to-slate-500 text-white rounded-3xl flex items-center justify-center gap-4 font-bold text-xl shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 disabled:cursor-not-allowed transition-all duration-500 border border-blue-500/20"
                   whileHover={!loading && domains.trim() ? { scale: 1.02, y: -2 } : {}}
                   whileTap={!loading && domains.trim() ? { scale: 0.98 } : {}}
                 >
@@ -230,7 +230,7 @@ const SearchForm: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      <Search className="w-6 h-6" />
+                      <Search className="w-7 h-7" />
                       <span>{t('search')}</span>
                     </>
                   )}
@@ -241,7 +241,7 @@ const SearchForm: React.FC = () => {
                     data={results} 
                     filename="tenant-results"
                     variant="secondary"
-                    className="lg:w-auto px-8 py-4 rounded-2xl font-bold text-lg"
+                    className="lg:w-auto px-10 py-6 rounded-3xl font-bold text-xl"
                   />
                 )}
               </div>
@@ -275,8 +275,8 @@ const SearchForm: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="max-w-7xl mx-auto"
           >
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
                 Search Results
               </h2>
               <StatusBadge 
@@ -286,26 +286,26 @@ const SearchForm: React.FC = () => {
               />
             </div>
 
-            <div className="grid gap-10">
+            <div className="grid gap-6">
               {results.map((result, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl rounded-3xl p-10 border border-white/40 dark:border-slate-700/40 shadow-2xl shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-500 group"
+                  className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-2xl rounded-2xl p-6 border border-white/40 dark:border-slate-700/40 shadow-xl shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-300 group"
                 >
                   {/* Domain Header */}
-                  <div className="flex items-center justify-between mb-10">
-                    <div className="flex items-center gap-6">
-                      <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-blue-500/25">
-                        <Globe className="w-8 h-8 text-white" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25">
+                        <Globe className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                           {result.domain}
                         </h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-semibold text-lg">
+                        <p className="text-slate-500 dark:text-slate-400 font-medium text-sm">
                           Microsoft Tenant Information
                         </p>
                       </div>
@@ -318,27 +318,27 @@ const SearchForm: React.FC = () => {
                   </div>
 
                   {result.tenantInfo ? (
-                    <div className="space-y-8">
+                    <div className="space-y-4">
                       {/* Tenant ID */}
-                      <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-3xl p-8 border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-xl">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center">
-                            <Shield className="w-6 h-6 text-white" />
+                      <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl p-4 border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-xl">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
+                            <Shield className="w-4 h-4 text-white" />
                           </div>
-                          <h4 className="text-xl font-bold text-slate-900 dark:text-white">
+                          <h4 className="text-lg font-bold text-slate-900 dark:text-white">
                             {t('tenantInfo.tenantId')}
                           </h4>
                         </div>
-                        <div className="flex items-center gap-4">
-                          <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
-                            <code className="text-lg font-mono text-slate-900 dark:text-slate-100 break-all">
+                        <div className="flex items-center gap-3">
+                          <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-xl p-3 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
+                            <code className="text-sm font-mono text-slate-900 dark:text-slate-100 break-all">
                               {result.tenantInfo.tenantId}
                             </code>
                           </div>
                           <motion.button
                             onClick={() => copyToClipboard(result.tenantInfo!.tenantId, 'tenant_id')}
-                            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-2xl font-bold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
-                            whileHover={{ scale: 1.05, y: -2 }}
+                            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+                            whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
                             {t('copy')}
@@ -348,27 +348,27 @@ const SearchForm: React.FC = () => {
 
                       {/* MX Records */}
                       {result.tenantInfo.mxRecords.length > 0 && (
-                        <div className="bg-gradient-to-r from-green-50/80 to-emerald-50/80 dark:from-green-900/30 dark:to-emerald-900/30 rounded-3xl p-8 border border-green-200/50 dark:border-green-700/50 backdrop-blur-xl">
-                          <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center">
-                              <Clock className="w-6 h-6 text-white" />
+                        <div className="bg-gradient-to-r from-green-50/80 to-emerald-50/80 dark:from-green-900/30 dark:to-emerald-900/30 rounded-2xl p-4 border border-green-200/50 dark:border-green-700/50 backdrop-blur-xl">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                              <Clock className="w-4 h-4 text-white" />
                             </div>
-                            <h4 className="text-xl font-bold text-slate-900 dark:text-white">
+                            <h4 className="text-lg font-bold text-slate-900 dark:text-white">
                               {t('tenantInfo.mxRecords')} ({result.tenantInfo.mxRecords.length})
                             </h4>
                           </div>
-                          <div className="space-y-4">
+                          <div className="space-y-2">
                             {result.tenantInfo.mxRecords.map((record, idx) => (
-                              <div key={idx} className="flex items-center gap-4">
-                                <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
-                                  <code className="text-lg font-mono text-slate-900 dark:text-slate-100">
+                              <div key={idx} className="flex items-center gap-3">
+                                <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-xl p-3 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
+                                  <code className="text-sm font-mono text-slate-900 dark:text-slate-100">
                                     {record.host}
                                   </code>
                                 </div>
                                 <motion.button
                                   onClick={() => copyToClipboard(record.host, 'mx_record')}
-                                  className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-2xl font-bold transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
-                                  whileHover={{ scale: 1.05, y: -2 }}
+                                  className="px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
+                                  whileHover={{ scale: 1.05 }}
                                   whileTap={{ scale: 0.95 }}
                                 >
                                   {t('copy')}
@@ -381,25 +381,25 @@ const SearchForm: React.FC = () => {
 
                       {/* SPF Record */}
                       {result.tenantInfo.spfRecord && (
-                        <div className="bg-gradient-to-r from-purple-50/80 to-pink-50/80 dark:from-purple-900/30 dark:to-pink-900/30 rounded-3xl p-8 border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-xl">
-                          <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-                              <Shield className="w-6 h-6 text-white" />
+                        <div className="bg-gradient-to-r from-purple-50/80 to-pink-50/80 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl p-4 border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-xl">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                              <Shield className="w-4 h-4 text-white" />
                             </div>
-                            <h4 className="text-xl font-bold text-slate-900 dark:text-white">
+                            <h4 className="text-lg font-bold text-slate-900 dark:text-white">
                               {t('tenantInfo.spfRecord')}
                             </h4>
                           </div>
-                          <div className="flex items-center gap-4">
-                            <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
-                              <code className="text-lg font-mono text-slate-900 dark:text-slate-100 break-all">
+                          <div className="flex items-center gap-3">
+                            <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-xl p-3 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
+                              <code className="text-sm font-mono text-slate-900 dark:text-slate-100 break-all">
                                 {result.tenantInfo.spfRecord.record}
                               </code>
                             </div>
                             <motion.button
                               onClick={() => copyToClipboard(result.tenantInfo!.spfRecord!.record, 'spf_record')}
-                              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-2xl font-bold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40"
-                              whileHover={{ scale: 1.05, y: -2 }}
+                              className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40"
+                              whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                             >
                               {t('copy')}
@@ -409,14 +409,14 @@ const SearchForm: React.FC = () => {
                       )}
                     </div>
                   ) : (
-                    <div className="text-center py-16">
-                      <div className="w-24 h-24 bg-gradient-to-r from-red-500 to-orange-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-red-500/25">
-                        <Globe className="w-12 h-12 text-white" />
+                    <div className="text-center py-8">
+                      <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-red-500/25">
+                        <Globe className="w-8 h-8 text-white" />
                       </div>
-                      <h4 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                         {t('status.notFound')}
                       </h4>
-                      <p className="text-slate-600 dark:text-slate-400 text-xl">
+                      <p className="text-slate-600 dark:text-slate-400 text-sm">
                         No Microsoft tenant found for this domain
                       </p>
                     </div>
