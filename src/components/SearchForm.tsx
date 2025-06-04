@@ -111,316 +111,396 @@ const SearchForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/10 dark:bg-blue-500/10 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-48 h-48 bg-indigo-400/10 dark:bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-purple-400/10 dark:bg-purple-500/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-      </div>
-      
-      <div className="relative z-10 container mx-auto px-4 py-4">
-        {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Ultra-Modern Hero Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-4"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h1 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent mb-3 leading-tight">
-            {t('title')}
-          </h1>
-          
-          <p className="text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-3 font-medium">
-            {t('subtitle')}
-          </p>
+          <div className="relative">
+            {/* Background Glow Effect */}
+            <div className="absolute inset-0 -m-4">
+              <div className="w-full h-full bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-indigo-400/10 rounded-3xl blur-3xl"></div>
+            </div>
+            
+            <div className="relative">
+              <motion.div 
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100/80 dark:bg-blue-900/30 backdrop-blur-xl rounded-full border border-blue-200/60 dark:border-blue-700/60 mb-8"
+              >
+                <Star className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">Professional Microsoft Tool</span>
+              </motion.div>
 
-          {/* Compact Features */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 dark:from-yellow-500/20 dark:to-orange-500/20 rounded-full border border-yellow-200/50 dark:border-yellow-700/50 backdrop-blur-xl">
-              <Zap className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
-              <span className="text-xs font-medium text-yellow-700 dark:text-yellow-300">Bulk Search</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-green-500/10 to-emerald-500/10 dark:from-green-500/20 dark:to-emerald-500/20 rounded-full border border-green-200/50 dark:border-green-700/50 backdrop-blur-xl">
-              <Target className="w-3 h-3 text-green-600 dark:text-green-400" />
-              <span className="text-xs font-medium text-green-700 dark:text-green-300">Export Results</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-xl">
-              <Shield className="w-3 h-3 text-purple-600 dark:text-purple-400" />
-              <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Real-time Results</span>
+              <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+                <span className="bg-gradient-to-r from-slate-900 via-blue-700 to-indigo-700 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent">
+                  {t('title')}
+                </span>
+              </h1>
+              
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed mb-12 font-light">
+                {t('subtitle')}
+              </p>
+
+              {/* Modern Feature Pills */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-wrap justify-center gap-4 mb-12"
+              >
+                <div className="group flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Bulk Search</span>
+                </div>
+                <div className="group flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center">
+                    <Target className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Export Results</span>
+                </div>
+                <div className="group flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Real-time</span>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
 
-        {/* Search Form */}
+        {/* Ultra-Modern Search Form */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-6xl mx-auto mb-12"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mb-16"
         >
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-2xl rounded-3xl p-8 border border-white/40 dark:border-slate-700/40 shadow-2xl shadow-blue-500/10 dark:shadow-blue-500/20 hover:shadow-2xl transition-all duration-500">
-              {/* Info Banner */}
-              <div className="flex items-start gap-6 p-8 bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-3xl border border-blue-200/60 dark:border-blue-700/60 mb-8 backdrop-blur-xl">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Info className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-4 text-xl">
-                    {t('howTo.title')}
-                  </h4>
-                  <div className="text-blue-700 dark:text-blue-300 space-y-2 text-base">
-                    <p className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      {t('howTo.step1')}
-                    </p>
-                    <p className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      {t('howTo.step2')}
-                    </p>
-                    <p className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      {t('howTo.step3')}
-                    </p>
-                    <p className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      {t('howTo.description')}
-                    </p>
+            <div className="relative">
+              {/* Glow Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-indigo-600/20 rounded-3xl blur opacity-30"></div>
+              
+              <div className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-3xl border border-slate-200/60 dark:border-slate-700/60 shadow-2xl p-8">
+                
+                {/* Modern Info Section */}
+                <div className="mb-8">
+                  <div className="flex items-start gap-6 p-6 bg-gradient-to-r from-blue-50/80 via-indigo-50/80 to-purple-50/80 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 rounded-2xl border border-blue-200/40 dark:border-blue-700/40 backdrop-blur-xl">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                      <Info className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                        {t('howTo.title')}
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-600 dark:text-slate-400">
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <span className="text-xs font-bold text-blue-600 dark:text-blue-400">1</span>
+                          </div>
+                          <span className="text-sm">{t('howTo.step1')}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <span className="text-xs font-bold text-blue-600 dark:text-blue-400">2</span>
+                          </div>
+                          <span className="text-sm">{t('howTo.step2')}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <span className="text-xs font-bold text-blue-600 dark:text-blue-400">3</span>
+                          </div>
+                          <span className="text-sm">{t('howTo.step3')}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <span className="text-xs font-bold text-blue-600 dark:text-blue-400">4</span>
+                          </div>
+                          <span className="text-sm">{t('howTo.description')}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Textarea */}
-              <div className="relative mb-8">
-                <label className="block text-2xl font-bold text-slate-900 dark:text-white mb-6">
-                  {t('domainPlaceholder').split('\n')[0]}
-                </label>
-                <div className="relative">
-                  <textarea
-                    value={domains}
-                    onChange={(e) => setDomains(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    onFocus={() => trackFormInteraction('focus', 'tenant_search_form')}
-                    onBlur={() => trackFormInteraction('blur', 'tenant_search_form')}
-                    placeholder={t('domainPlaceholder')}
-                    className="w-full px-8 py-6 h-48 rounded-3xl border-2 border-slate-200/60 dark:border-slate-600/60 bg-white/90 dark:bg-slate-900/90 text-slate-900 dark:text-white focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-500 text-lg leading-relaxed placeholder-slate-400 dark:placeholder-slate-500 font-mono backdrop-blur-xl shadow-inner"
-                  />
-                  <div className="absolute bottom-6 right-6 flex items-center gap-3">
-                    <span className="text-sm text-slate-500 dark:text-slate-400 bg-slate-100/90 dark:bg-slate-800/90 px-4 py-2 rounded-2xl backdrop-blur-xl font-medium">
-                      <kbd className="font-semibold">Shift + Enter</kbd> for new line
-                    </span>
+                {/* Modern Input Section */}
+                <div className="mb-8">
+                  <label className="block text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                    {t('domainPlaceholder').split('\n')[0]}
+                  </label>
+                  
+                  <div className="relative">
+                    <textarea
+                      value={domains}
+                      onChange={(e) => setDomains(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      onFocus={() => trackFormInteraction('focus', 'tenant_search_form')}
+                      onBlur={() => trackFormInteraction('blur', 'tenant_search_form')}
+                      placeholder={t('domainPlaceholder')}
+                      className="w-full px-6 py-6 h-40 bg-slate-50/80 dark:bg-slate-800/80 border-2 border-slate-200/60 dark:border-slate-700/60 rounded-2xl text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-300 font-mono text-lg leading-relaxed backdrop-blur-xl shadow-inner"
+                    />
+                    <div className="absolute bottom-4 right-4">
+                      <span className="text-sm text-slate-500 dark:text-slate-400 bg-white/90 dark:bg-slate-800/90 px-3 py-1.5 rounded-xl backdrop-blur-xl font-medium border border-slate-200/50 dark:border-slate-700/50">
+                        <kbd className="font-mono">Shift + Enter</kbd> for new line
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col lg:flex-row gap-6">
-                <motion.button
-                  type="submit"
-                  disabled={loading || !domains.trim()}
-                  className="flex-1 px-10 py-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 disabled:from-slate-400 disabled:to-slate-500 text-white rounded-3xl flex items-center justify-center gap-4 font-bold text-xl shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 disabled:cursor-not-allowed transition-all duration-500 border border-blue-500/20"
-                  whileHover={!loading && domains.trim() ? { scale: 1.02, y: -2 } : {}}
-                  whileTap={!loading && domains.trim() ? { scale: 0.98 } : {}}
-                >
-                  {loading ? (
-                    <>
-                      <LoadingSpinner size="sm" color="white" />
-                      <span>{t('searching')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Search className="w-7 h-7" />
-                      <span>{t('search')}</span>
-                    </>
+                {/* Modern Action Section */}
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <motion.button
+                      type="submit"
+                      disabled={loading || !domains.trim()}
+                      className="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 disabled:from-slate-400 disabled:to-slate-500 text-white rounded-2xl flex items-center justify-center gap-3 font-bold text-lg shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 disabled:cursor-not-allowed transition-all duration-300 border border-blue-500/20"
+                      whileHover={!loading && domains.trim() ? { scale: 1.02, y: -2 } : {}}
+                      whileTap={!loading && domains.trim() ? { scale: 0.98 } : {}}
+                    >
+                      {loading ? (
+                        <>
+                          <LoadingSpinner size="sm" color="white" />
+                          <span>{t('searching')}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Search className="w-6 h-6" />
+                          <span>{t('search')}</span>
+                        </>
+                      )}
+                    </motion.button>
+
+                    {results.length > 0 && (
+                      <ExportButton 
+                        data={results} 
+                        filename="tenant-results"
+                        variant="secondary"
+                        className="sm:w-auto px-8 py-4 rounded-2xl font-bold text-lg"
+                      />
+                    )}
+                  </div>
+
+                  {/* Enhanced Stats */}
+                  {results.length > 0 && (
+                    <div className="flex gap-6 justify-center relative z-10">
+                      <div className="flex items-center gap-3 px-6 py-3 bg-emerald-50/80 dark:bg-emerald-900/30 rounded-2xl backdrop-blur-xl border border-emerald-200/50 dark:border-emerald-700/50">
+                        <div className="w-4 h-4 bg-emerald-500 rounded-full shadow-lg"></div>
+                        <span className="font-bold text-emerald-700 dark:text-emerald-300">
+                          {results.filter(r => r.tenantInfo).length} Found
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3 px-6 py-3 bg-red-50/80 dark:bg-red-900/30 rounded-2xl backdrop-blur-xl border border-red-200/50 dark:border-red-700/50">
+                        <div className="w-4 h-4 bg-red-500 rounded-full shadow-lg"></div>
+                        <span className="font-bold text-red-700 dark:text-red-300">
+                          {results.filter(r => !r.tenantInfo).length} Not Found
+                        </span>
+                      </div>
+                    </div>
                   )}
-                </motion.button>
-
-                {results.length > 0 && (
-                  <ExportButton 
-                    data={results} 
-                    filename="tenant-results"
-                    variant="secondary"
-                    className="lg:w-auto px-10 py-6 rounded-3xl font-bold text-xl"
-                  />
-                )}
-              </div>
-
-              {/* Quick Stats */}
-              {results.length > 0 && (
-                <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                  <div className="flex items-center gap-3 px-6 py-3 bg-green-100/80 dark:bg-green-900/40 rounded-2xl backdrop-blur-xl border border-green-200/50 dark:border-green-700/50">
-                    <div className="w-4 h-4 bg-green-500 rounded-full shadow-lg"></div>
-                    <span className="font-semibold text-green-700 dark:text-green-300">
-                      {results.filter(r => r.tenantInfo).length} {t('status.found')}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3 px-6 py-3 bg-red-100/80 dark:bg-red-900/40 rounded-2xl backdrop-blur-xl border border-red-200/50 dark:border-red-700/50">
-                    <div className="w-4 h-4 bg-red-500 rounded-full shadow-lg"></div>
-                    <span className="font-semibold text-red-700 dark:text-red-300">
-                      {results.filter(r => !r.tenantInfo).length} {t('status.notFound')}
-                    </span>
-                  </div>
                 </div>
-              )}
+              </div>
             </div>
           </form>
         </motion.div>
 
-        {/* Results Section */}
+        {/* Ultra-Modern Results Section */}
         {results.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-7xl mx-auto"
           >
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Search Results
-              </h2>
-              <StatusBadge 
-                status="success" 
-                text={`${results.length} domains processed`}
-                size="lg"
-              />
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h2 className="text-4xl font-bold bg-gradient-to-r from-slate-900 via-blue-700 to-indigo-700 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent mb-2">
+                  Search Results
+                </h2>
+                <p className="text-lg text-slate-600 dark:text-slate-400">
+                  Microsoft tenant information discovered
+                </p>
+              </div>
+              <div className="flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/60 shadow-lg relative z-10">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+                  <Search className="w-5 h-5 text-white" />
+                </div>
+                <span className="font-bold text-slate-700 dark:text-slate-300">
+                  {results.length} domains processed
+                </span>
+              </div>
             </div>
 
-            <div className="grid gap-6">
+            <div className="space-y-8">
               {results.map((result, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-2xl rounded-2xl p-6 border border-white/40 dark:border-slate-700/40 shadow-xl shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-300 group"
+                  className="group relative"
                 >
-                  {/* Domain Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/25">
-                        <Globe className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                          {result.domain}
-                        </h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium text-sm">
-                          Microsoft Tenant Information
-                        </p>
+                  {/* Card Glow Effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-indigo-600/20 rounded-3xl blur opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
+                  
+                  <div className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-3xl border border-slate-200/60 dark:border-slate-700/60 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 overflow-hidden">
+                    
+                    {/* Modern Domain Header */}
+                    <div className="relative p-8 bg-gradient-to-r from-slate-50/80 via-white/80 to-blue-50/40 dark:from-slate-800/80 dark:via-slate-900/80 dark:to-slate-800/40 border-b border-slate-200/60 dark:border-slate-700/60">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-6">
+                          <div className="relative">
+                            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/25">
+                              <Globe className="w-8 h-8 text-white" />
+                            </div>
+                            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-600/20 rounded-2xl blur opacity-50"></div>
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
+                              {result.domain}
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 font-medium">
+                              Microsoft Tenant Information
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Ultra-Modern Status Badge */}
+                        <div className={`relative px-6 py-3 rounded-2xl backdrop-blur-xl border font-bold text-sm flex items-center gap-3 shadow-lg ${
+                          result.tenantInfo 
+                            ? 'bg-emerald-50/90 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200/60 dark:border-emerald-700/60'
+                            : 'bg-red-50/90 dark:bg-red-900/30 text-red-700 dark:text-red-300 border-red-200/60 dark:border-red-700/60'
+                        }`}>
+                          <div className={`w-3 h-3 rounded-full shadow-lg ${result.tenantInfo ? 'bg-emerald-500' : 'bg-red-500'}`}></div>
+                          {result.tenantInfo ? 'Tenant Found' : 'No Tenant'}
+                        </div>
                       </div>
                     </div>
-                    <StatusBadge 
-                      status={result.tenantInfo ? 'success' : 'error'}
-                      text={result.tenantInfo ? t('status.found') : t('status.notFound')}
-                      size="lg"
-                    />
-                  </div>
 
-                  {result.tenantInfo ? (
-                    <div className="space-y-4">
-                      {/* Tenant ID */}
-                      <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl p-4 border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-xl">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
-                            <Shield className="w-4 h-4 text-white" />
-                          </div>
-                          <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                            {t('tenantInfo.tenantId')}
-                          </h4>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-xl p-3 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
-                            <code className="text-sm font-mono text-slate-900 dark:text-slate-100 break-all">
-                              {result.tenantInfo.tenantId}
-                            </code>
-                          </div>
-                          <motion.button
-                            onClick={() => copyToClipboard(result.tenantInfo!.tenantId, 'tenant_id')}
-                            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            {t('copy')}
-                          </motion.button>
-                        </div>
-                      </div>
-
-                      {/* MX Records */}
-                      {result.tenantInfo.mxRecords.length > 0 && (
-                        <div className="bg-gradient-to-r from-green-50/80 to-emerald-50/80 dark:from-green-900/30 dark:to-emerald-900/30 rounded-2xl p-4 border border-green-200/50 dark:border-green-700/50 backdrop-blur-xl">
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                              <Clock className="w-4 h-4 text-white" />
+                    {result.tenantInfo ? (
+                      <div className="p-8 space-y-8">
+                        {/* Ultra-Modern Tenant ID Section */}
+                        <div className="relative">
+                          <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-2xl blur"></div>
+                          <div className="relative bg-slate-50/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-200/60 dark:border-slate-700/60">
+                            <div className="flex items-center gap-4 mb-6">
+                              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                <Shield className="w-6 h-6 text-white" />
+                              </div>
+                              <h4 className="text-2xl font-bold text-slate-900 dark:text-white">
+                                Tenant ID
+                              </h4>
                             </div>
-                            <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                              {t('tenantInfo.mxRecords')} ({result.tenantInfo.mxRecords.length})
-                            </h4>
+                            <div className="flex items-center gap-4">
+                              <div className="flex-1 p-6 bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-xl shadow-inner">
+                                <code className="text-lg font-mono text-slate-900 dark:text-slate-100 break-all leading-relaxed">
+                                  {result.tenantInfo.tenantId}
+                                </code>
+                              </div>
+                              <motion.button
+                                onClick={() => copyToClipboard(result.tenantInfo!.tenantId, 'tenant_id')}
+                                className="px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-2xl font-bold text-lg shadow-xl hover:shadow-blue-500/25 transition-all duration-300"
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                              >
+                                Copy
+                              </motion.button>
+                            </div>
                           </div>
-                          <div className="space-y-2">
-                            {result.tenantInfo.mxRecords.map((record, idx) => (
-                              <div key={idx} className="flex items-center gap-3">
-                                <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-xl p-3 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
-                                  <code className="text-sm font-mono text-slate-900 dark:text-slate-100">
-                                    {record.host}
+                        </div>
+
+                        {/* Ultra-Modern MX Records Section */}
+                        {result.tenantInfo.mxRecords.length > 0 && (
+                          <div className="relative">
+                            <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-green-500/10 rounded-2xl blur"></div>
+                            <div className="relative bg-slate-50/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-200/60 dark:border-slate-700/60">
+                              <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 via-teal-500 to-green-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                  <Clock className="w-6 h-6 text-white" />
+                                </div>
+                                <h4 className="text-2xl font-bold text-slate-900 dark:text-white">
+                                  MX Records ({result.tenantInfo.mxRecords.length})
+                                </h4>
+                              </div>
+                              <div className="space-y-4">
+                                {result.tenantInfo.mxRecords.map((record, idx) => (
+                                  <div key={idx} className="flex items-center gap-4">
+                                    <div className="flex-1 p-6 bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-xl shadow-inner">
+                                      <code className="text-lg font-mono text-slate-900 dark:text-slate-100 leading-relaxed">
+                                        {record.host}
+                                      </code>
+                                    </div>
+                                    <motion.button
+                                      onClick={() => copyToClipboard(record.host, 'mx_record')}
+                                      className="px-6 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-2xl font-bold text-lg shadow-xl hover:shadow-emerald-500/25 transition-all duration-300"
+                                      whileHover={{ scale: 1.05, y: -2 }}
+                                      whileTap={{ scale: 0.95 }}
+                                    >
+                                      Copy
+                                    </motion.button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Ultra-Modern SPF Record Section */}
+                        {result.tenantInfo.spfRecord && (
+                          <div className="relative">
+                            <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-pink-500/10 rounded-2xl blur"></div>
+                            <div className="relative bg-slate-50/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-200/60 dark:border-slate-700/60">
+                              <div className="flex items-center gap-4 mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 via-indigo-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                  <Shield className="w-6 h-6 text-white" />
+                                </div>
+                                <h4 className="text-2xl font-bold text-slate-900 dark:text-white">
+                                  SPF Record
+                                </h4>
+                              </div>
+                              <div className="flex items-center gap-4">
+                                <div className="flex-1 p-6 bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-xl shadow-inner">
+                                  <code className="text-lg font-mono text-slate-900 dark:text-slate-100 break-all leading-relaxed">
+                                    {result.tenantInfo.spfRecord.record}
                                   </code>
                                 </div>
                                 <motion.button
-                                  onClick={() => copyToClipboard(record.host, 'mx_record')}
-                                  className="px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
-                                  whileHover={{ scale: 1.05 }}
+                                  onClick={() => copyToClipboard(result.tenantInfo!.spfRecord!.record, 'spf_record')}
+                                  className="px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-2xl font-bold text-lg shadow-xl hover:shadow-purple-500/25 transition-all duration-300"
+                                  whileHover={{ scale: 1.05, y: -2 }}
                                   whileTap={{ scale: 0.95 }}
                                 >
-                                  {t('copy')}
+                                  Copy
                                 </motion.button>
                               </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* SPF Record */}
-                      {result.tenantInfo.spfRecord && (
-                        <div className="bg-gradient-to-r from-purple-50/80 to-pink-50/80 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl p-4 border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-xl">
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                              <Shield className="w-4 h-4 text-white" />
                             </div>
-                            <h4 className="text-lg font-bold text-slate-900 dark:text-white">
-                              {t('tenantInfo.spfRecord')}
-                            </h4>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <div className="flex-1 bg-white/80 dark:bg-slate-800/80 rounded-xl p-3 border border-slate-200/50 dark:border-slate-600/50 backdrop-blur-xl">
-                              <code className="text-sm font-mono text-slate-900 dark:text-slate-100 break-all">
-                                {result.tenantInfo.spfRecord.record}
-                              </code>
-                            </div>
-                            <motion.button
-                              onClick={() => copyToClipboard(result.tenantInfo!.spfRecord!.record, 'spf_record')}
-                              className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              {t('copy')}
-                            </motion.button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="text-center py-8">
-                      <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-red-500/25">
-                        <Globe className="w-8 h-8 text-white" />
+                        )}
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                        {t('status.notFound')}
-                      </h4>
-                      <p className="text-slate-600 dark:text-slate-400 text-sm">
-                        No Microsoft tenant found for this domain
-                      </p>
-                    </div>
-                  )}
+                    ) : (
+                      <div className="p-16 text-center">
+                        <div className="relative mb-8">
+                          <div className="w-24 h-24 bg-gradient-to-br from-red-500 via-rose-500 to-pink-500 rounded-3xl flex items-center justify-center mx-auto shadow-2xl shadow-red-500/25">
+                            <Globe className="w-12 h-12 text-white" />
+                          </div>
+                          <div className="absolute -inset-2 bg-gradient-to-br from-red-500/20 via-rose-500/20 to-pink-500/20 rounded-3xl blur opacity-50"></div>
+                        </div>
+                        <h4 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+                          No Tenant Found
+                        </h4>
+                        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-lg mx-auto leading-relaxed">
+                          No Microsoft tenant information was found for this domain. It may not be using Microsoft services.
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </motion.div>
               ))}
             </div>

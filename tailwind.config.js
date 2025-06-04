@@ -77,10 +77,15 @@ export default {
         '2xl': '1rem',
         '3xl': '1.5rem',
       },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+      },
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.04)',
         'hard': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 50px -10px rgba(0, 0, 0, 0.08)',
+        '3xl': '0 35px 60px -12px rgba(0, 0, 0, 0.25)',
       },
       animation: {
         'fadeIn': 'fadeIn 0.5s ease-in-out',

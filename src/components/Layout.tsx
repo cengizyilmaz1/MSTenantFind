@@ -84,66 +84,65 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   ];
 
   const externalLinks = [
-    { href: 'https://message.cengizyilmaz.net', icon: MessageCircle, label: 'Messages' },
-    { href: 'https://cengizyilmaz.net', icon: ExternalLink, label: 'Personal Blog' }
+    { href: 'https://message.cengizyilmaz.net', icon: MessageCircle, label: 'Message Center' },
+    { href: 'https://cengizyilmaz.net', icon: ExternalLink, label: 'CengizYILMAZ Blog' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-all duration-700">
-      {/* Wide Modern Navigation */}
-      <nav className="fixed top-0 w-full z-50" role="navigation" aria-label="Main navigation">
-        {/* Clean Background */}
-        <div className="absolute inset-0 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl"></div>
-        
-        <div className="relative max-w-8xl mx-auto px-8 lg:px-16">
-          <div className="flex justify-between items-center h-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-all duration-500">
+      {/* Ultra-Modern Navigation */}
+      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/20" role="navigation" aria-label="Main navigation">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-18">
             
-            {/* Logo Section - More Space */}
-            <div className="flex items-center min-w-0 flex-1">
+            {/* Modern Logo Section */}
+            <div className="flex items-center">
               <Link 
                 to="/" 
-                className="group flex items-center gap-3 py-2 transition-all duration-300"
+                className="group flex items-center gap-4 py-3 transition-all duration-300"
                 aria-label="Go to home page"
               >
-                <div className="relative p-2.5 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 transition-all duration-300">
-                  <Home className="h-6 w-6 text-blue-600 dark:text-blue-400 transition-transform duration-300" />
+                <div className="relative">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-105">
+                    <Home className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="hidden sm:block">
-                  <div className="text-lg font-bold bg-gradient-to-r from-slate-900 to-blue-700 dark:from-white dark:to-blue-200 bg-clip-text text-transparent">
+                  <div className="text-xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-blue-700 dark:from-white dark:via-slate-200 dark:to-blue-300 bg-clip-text text-transparent">
                     MS Tenant Finder
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium -mt-1">
+                  <div className="text-sm text-slate-500 dark:text-slate-400 font-medium -mt-0.5">
                     Professional Tool
                   </div>
                 </div>
               </Link>
             </div>
 
-            {/* Center Navigation - Wider Spacing */}
-            <div className="hidden lg:flex items-center justify-center flex-1">
-              <div className="flex items-center gap-6">
-                {navItems.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <NavTooltip key={item.path} content={item.tooltip}>
-                      <Link
-                        to={item.path}
-                        className="relative p-4 rounded-2xl transition-all duration-300 group outline-none text-slate-600 dark:text-slate-300"
-                        aria-label={item.tooltip}
-                      >
-                        <Icon size={18} className="transition-transform duration-300" />
-                      </Link>
-                    </NavTooltip>
-                  );
-                })}
-              </div>
+            {/* Clean Center Navigation */}
+            <div className="hidden lg:flex items-center space-x-2">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <NavTooltip key={item.path} content={item.tooltip}>
+                    <Link
+                      to={item.path}
+                      className="group flex items-center gap-3 px-6 py-3 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl"
+                      aria-label={item.tooltip}
+                    >
+                      <Icon size={18} className="transition-transform duration-200 group-hover:scale-110" />
+                      <span>{item.label}</span>
+                    </Link>
+                  </NavTooltip>
+                );
+              })}
             </div>
 
-            {/* Right Controls - Better Layout */}
-            <div className="hidden lg:flex items-center justify-end gap-4 min-w-0 flex-1">
+            {/* Modern Right Controls */}
+            <div className="hidden lg:flex items-center gap-4">
               
               {/* External Links */}
-              <div className="flex items-center gap-3 mr-2">
+              <div className="flex items-center gap-2">
                 {externalLinks.map((link, index) => {
                   const Icon = link.icon;
                   return (
@@ -152,49 +151,43 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         href={link.href}
                         target="_blank"
                         rel="dofollow"
-                        className="p-3 rounded-2xl text-slate-600 dark:text-slate-300 transition-all duration-300 group outline-none"
+                        className="group flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl font-medium cursor-pointer"
                         aria-label={link.label}
                       >
-                        <Icon size={18} className="transition-transform duration-300" />
+                        <Icon size={16} className="transition-transform duration-200 group-hover:scale-110" />
+                        <span className="text-sm">{link.label}</span>
                       </a>
                     </NavTooltip>
                   );
                 })}
               </div>
 
-              {/* Language Switch - Bigger */}
-              <NavTooltip content={i18n.language === 'en' ? 'Türkçeye Geç' : 'Switch to English'}>
-                <button
-                  onClick={toggleLanguage}
-                  className="group flex items-center gap-3 px-5 py-3 rounded-2xl transition-all duration-300 outline-none"
-                  aria-label={i18n.language === 'en' ? 'Switch to Turkish' : 'Switch to English'}
-                >
-                  <Globe2 size={18} className="text-slate-600 dark:text-slate-300 transition-colors duration-300" />
-                  <span className="text-sm font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider transition-colors duration-300">
-                    {i18n.language === 'en' ? 'TR' : 'EN'}
-                  </span>
-                </button>
-              </NavTooltip>
+              {/* Icon Controls */}
+              <div className="flex items-center gap-1 pl-2 border-l border-slate-200 dark:border-slate-700">
+                <NavTooltip content={i18n.language === 'en' ? 'Türkçeye Geç' : 'Switch to English'}>
+                  <button
+                    onClick={toggleLanguage}
+                    className="group p-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
+                    aria-label={i18n.language === 'en' ? 'Switch to Turkish' : 'Switch to English'}
+                  >
+                    <Globe2 size={18} className="transition-transform duration-200 group-hover:scale-110" />
+                  </button>
+                </NavTooltip>
 
-              {/* Theme Toggle - Better Design */}
-              <NavTooltip content={theme === 'dark' ? 'Açık Tema' : 'Koyu Tema'}>
-                <button
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="group p-4 rounded-2xl text-slate-600 dark:text-slate-300 transition-all duration-300 outline-none"
-                  aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                >
-                  <div className="transition-transform duration-300">
-                    {theme === 'dark' ? (
-                      <Sun size={18} />
-                    ) : (
-                      <Moon size={18} />
-                    )}
-                  </div>
-                </button>
-              </NavTooltip>
+                <NavTooltip content={theme === 'dark' ? 'Açık Tema' : 'Koyu Tema'}>
+                  <button
+                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                    className="group p-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
+                    aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                  >
+                    {theme === 'dark' ? 
+                      <Sun size={18} className="transition-transform duration-200 group-hover:scale-110 group-hover:rotate-90" /> : 
+                      <Moon size={18} className="transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12" />
+                    }
+                  </button>
+                </NavTooltip>
 
-              {/* Social Links - Bigger & Separated */}
-              <div className="flex items-center gap-3 ml-4 pl-4 border-l border-slate-200/60 dark:border-slate-700/60">
+                {/* Social Links */}
                 {socialLinks.map((link, index) => {
                   const Icon = link.icon;
                   return (
@@ -203,10 +196,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         href={link.href}
                         target="_blank"
                         rel="dofollow"
-                        className="p-3 rounded-2xl text-slate-600 dark:text-slate-300 transition-all duration-300 group outline-none"
+                        className="group p-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
                         aria-label={link.label}
                       >
-                        <Icon size={18} className="transition-transform duration-300" />
+                        <Icon size={18} className="transition-transform duration-200 group-hover:scale-110" />
                       </a>
                     </NavTooltip>
                   );
@@ -273,7 +266,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                           <a
                             href={link.href}
                             target="_blank"
-                            rel="dofollow"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-4 px-6 py-4 rounded-xl transition-all duration-300 text-slate-600 dark:text-slate-300 outline-none"
                           >
                             <Icon size={18} />
@@ -312,7 +305,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-8" role="main" aria-label="Main content">
+      <main className="pt-16" role="main" aria-label="Main content">
         {children}
       </main>
 
@@ -327,7 +320,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <a 
                   href="https://cengizyilmaz.net" 
                   target="_blank" 
-                  rel="dofollow"
+                  rel="noopener noreferrer"
                   className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium"
                   aria-label="Visit Cengiz YILMAZ's website"
                 >
