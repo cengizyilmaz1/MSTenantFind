@@ -92,27 +92,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-all duration-500">
       {/* Ultra-Modern Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-700/60 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/20" role="navigation" aria-label="Main navigation">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-18">
+        <div className="max-w-6xl mx-auto px-4 lg:px-6">
+          <div className="flex justify-between items-center h-16">
             
             {/* Modern Logo Section */}
             <div className="flex items-center">
               <Link 
                 to="/" 
-                className="group flex items-center gap-4 py-3 transition-all duration-300"
+                className="group flex items-center gap-3 py-2 transition-all duration-300"
                 aria-label="Go to home page"
               >
                 <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-105">
-                    <Home className="h-6 w-6 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-105">
+                    <Home className="h-5 w-5 text-white" />
                   </div>
-                  <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="hidden sm:block">
-                  <div className="text-xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-blue-700 dark:from-white dark:via-slate-200 dark:to-blue-300 bg-clip-text text-transparent">
+                  <div className="text-lg font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-blue-700 dark:from-white dark:via-slate-200 dark:to-blue-300 bg-clip-text text-transparent">
                     MS Tenant Finder
                   </div>
-                  <div className="text-sm text-slate-500 dark:text-slate-400 font-medium -mt-0.5">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium -mt-0.5">
                     Professional Tool
                   </div>
                 </div>
@@ -120,17 +120,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
 
             {/* Clean Center Navigation */}
-            <div className="hidden lg:flex items-center space-x-2">
+            <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
                   <NavTooltip key={item.path} content={item.tooltip}>
                     <Link
                       to={item.path}
-                      className="group flex items-center gap-3 px-6 py-3 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl"
+                      className="group flex items-center gap-2 px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all duration-200 backdrop-blur-xl"
                       aria-label={item.tooltip}
                     >
-                      <Icon size={18} className="transition-transform duration-200 group-hover:scale-110" />
+                      <Icon size={16} className="transition-transform duration-200 group-hover:scale-110" />
                       <span>{item.label}</span>
                     </Link>
                   </NavTooltip>
@@ -139,10 +139,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
 
             {/* Modern Right Controls */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3">
               
               {/* External Links */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 {externalLinks.map((link, index) => {
                   const Icon = link.icon;
                   return (
@@ -151,10 +151,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         href={link.href}
                         target="_blank"
                         rel="dofollow"
-                        className="group flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl font-medium cursor-pointer"
+                        className="group flex items-center gap-2 px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all duration-200 backdrop-blur-xl font-medium cursor-pointer"
                         aria-label={link.label}
                       >
-                        <Icon size={16} className="transition-transform duration-200 group-hover:scale-110" />
+                        <Icon size={14} className="transition-transform duration-200 group-hover:scale-110" />
                         <span className="text-sm">{link.label}</span>
                       </a>
                     </NavTooltip>
@@ -167,22 +167,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <NavTooltip content={i18n.language === 'en' ? 'Türkçeye Geç' : 'Switch to English'}>
                   <button
                     onClick={toggleLanguage}
-                    className="group p-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
+                    className="group p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
                     aria-label={i18n.language === 'en' ? 'Switch to Turkish' : 'Switch to English'}
                   >
-                    <Globe2 size={18} className="transition-transform duration-200 group-hover:scale-110" />
+                    <Globe2 size={16} className="transition-transform duration-200 group-hover:scale-110" />
                   </button>
                 </NavTooltip>
 
                 <NavTooltip content={theme === 'dark' ? 'Açık Tema' : 'Koyu Tema'}>
                   <button
                     onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="group p-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
+                    className="group p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
                     aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                   >
                     {theme === 'dark' ? 
-                      <Sun size={18} className="transition-transform duration-200 group-hover:scale-110 group-hover:rotate-90" /> : 
-                      <Moon size={18} className="transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12" />
+                      <Sun size={16} className="transition-transform duration-200 group-hover:scale-110 group-hover:rotate-90" /> : 
+                      <Moon size={16} className="transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12" />
                     }
                   </button>
                 </NavTooltip>
@@ -196,10 +196,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         href={link.href}
                         target="_blank"
                         rel="dofollow"
-                        className="group p-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-2xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
+                        className="group p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 rounded-xl transition-all duration-200 backdrop-blur-xl cursor-pointer"
                         aria-label={link.label}
                       >
-                        <Icon size={18} className="transition-transform duration-200 group-hover:scale-110" />
+                        <Icon size={16} className="transition-transform duration-200 group-hover:scale-110" />
                       </a>
                     </NavTooltip>
                   );
@@ -305,17 +305,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-16" role="main" aria-label="Main content">
+      <main className="pt-8" role="main" aria-label="Main content">
         {children}
       </main>
 
-      {/* Modern Footer */}
+      {/* Compact Footer */}
       <footer className="relative border-t border-white/30 dark:border-slate-700/30" role="contentinfo" aria-label="Footer">
         <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/40 to-white/60 dark:from-slate-900/60 dark:via-slate-900/40 dark:to-slate-900/60 backdrop-blur-2xl"></div>
-        <div className="relative max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div className="relative max-w-6xl mx-auto py-6 px-4 lg:px-6">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             <div className="text-center lg:text-left">
-              <p className="text-slate-600 dark:text-slate-400 flex items-center gap-3 flex-wrap justify-center lg:justify-start">
+              <p className="text-slate-600 dark:text-slate-400 flex items-center gap-3 flex-wrap justify-center lg:justify-start text-sm">
                 © {new Date().getFullYear()}{' '}
                 <a 
                   href="https://cengizyilmaz.net" 
@@ -326,25 +326,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 >
                   Cengiz YILMAZ
                 </a>
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-orange-500/10 to-red-500/10 dark:from-orange-500/20 dark:to-red-500/20 border border-orange-200/30 dark:border-orange-700/30 backdrop-blur-xl">
-                  <Award className="w-4 h-4 text-orange-600 dark:text-orange-400" />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 dark:from-orange-400 dark:to-red-400 font-medium text-sm">
+                <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-gradient-to-r from-orange-500/10 to-red-500/10 dark:from-orange-500/20 dark:to-red-500/20 border border-orange-200/30 dark:border-orange-700/30 backdrop-blur-xl">
+                  <Award className="w-3 h-3 text-orange-600 dark:text-orange-400" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 dark:from-orange-400 dark:to-red-400 font-medium text-xs">
                     Microsoft MVP
                   </span>
                 </span>
               </p>
             </div>
-            <div className="flex gap-6">
+            <div className="flex gap-4">
               <Link
                 to="/privacy"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium"
+                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xs font-medium"
                 aria-label="Privacy policy"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium"
+                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xs font-medium"
                 aria-label="Terms of service"
               >
                 Terms of Service
