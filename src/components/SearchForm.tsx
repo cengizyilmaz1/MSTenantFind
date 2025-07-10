@@ -157,7 +157,10 @@ woodgrove.com`;
     
     try {
       await navigator.clipboard.writeText(domainList.join('\n'));
-      toast.success('Domains copied to clipboard!');
+      toast.success(`${domainList.length} domain${domainList.length > 1 ? 's' : ''} copied to clipboard!`, {
+        icon: '📝',
+        duration: 2000
+      });
     } catch (error) {
       toast.error('Failed to copy domains');
     }
@@ -178,9 +181,12 @@ woodgrove.com`;
       }).join('\n');
       
       await navigator.clipboard.writeText(resultText);
-      toast.success('All results copied to clipboard!');
+      toast.success(`All ${results.length} results copied to clipboard!`, {
+        icon: '📊',
+        duration: 2500
+      });
     } catch (error) {
-      toast.error('Failed to copy results');
+      toast.error('Failed to copy all results');
     }
   }, [results]);
 
@@ -206,15 +212,18 @@ woodgrove.com`;
         {/* Action Bar */}
         <div className="flex flex-wrap gap-4 justify-between items-center bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/30 dark:border-slate-700/30 shadow-xl relative z-10 overflow-visible">
           <div className="flex items-center gap-3">
-            <motion.button
+            <button
               onClick={copyAllResults}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-200 font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 font-medium"
+              style={{ 
+                position: 'static',
+                transform: 'none',
+                transition: 'background-color 0.2s ease'
+              }}
             >
               <Copy className="w-4 h-4" />
               Copy All Results
-            </motion.button>
+            </button>
           </div>
           
           <div className="relative z-20">
@@ -281,7 +290,7 @@ woodgrove.com`;
                 value={domains}
                 onChange={(e) => setDomains(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Enter domain names (one per line):\ncontoso.com\nfabrikam.com\ntailwindcorp.com\n\nPress Enter to search, Shift+Enter for new line"
+                placeholder="Enter domain names (one per line):\nmicrosoft.com\ngoogle.com\namazon.com\n\nPress Enter to search, Shift+Enter for new line"
                 className="w-full bg-slate-50/80 dark:bg-slate-800/80 border-2 border-slate-200/60 dark:border-slate-700/60 rounded-2xl p-6 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500/50 resize-none backdrop-blur-xl placeholder:text-slate-400 font-mono leading-relaxed min-h-40"
                 rows={8}
               />
@@ -449,18 +458,24 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
   const copyTenantId = useCallback(async (tenantId: string) => {
     try {
       await navigator.clipboard.writeText(tenantId);
-      toast.success('Tenant ID copied!');
+      toast.success('Tenant ID copied to clipboard!', {
+        icon: '🆔',
+        duration: 2000
+      });
     } catch (error) {
-      toast.error('Failed to copy');
+      toast.error('Failed to copy Tenant ID');
     }
   }, []);
 
   const copyDomain = useCallback(async (domain: string) => {
     try {
       await navigator.clipboard.writeText(domain);
-      toast.success('Domain copied!');
+      toast.success(`Domain "${domain}" copied!`, {
+        icon: '🌐',
+        duration: 2000
+      });
     } catch (error) {
-      toast.error('Failed to copy');
+      toast.error('Failed to copy domain');
     }
   }, []);
 
@@ -484,9 +499,12 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
       resultText += `Timestamp: ${new Date(result.timestamp).toLocaleString()}`;
       
       await navigator.clipboard.writeText(resultText);
-      toast.success('Result copied to clipboard!');
+      toast.success('Complete result copied to clipboard!', {
+        icon: '📋',
+        duration: 2500
+      });
     } catch (error) {
-      toast.error('Failed to copy');
+      toast.error('Failed to copy result');
     }
   }, [result, hasTenant, hasError]);
 
@@ -528,14 +546,17 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
           <div>
             <div className="flex items-center gap-3 mb-2">
               <h3 className="text-2xl font-black text-slate-900 dark:text-white">{result.domain}</h3>
-              <motion.button
+              <button
                 onClick={() => copyDomain(result.domain)}
-                className="opacity-0 group-hover:opacity-100 p-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-all duration-200"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="opacity-0 group-hover:opacity-100 p-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600"
+                style={{ 
+                  position: 'static',
+                  transform: 'none',
+                  transition: 'opacity 0.2s ease, background-color 0.2s ease'
+                }}
               >
                 <Copy className="w-4 h-4" />
-              </motion.button>
+              </button>
             </div>
             <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
               <Clock className="w-4 h-4" />
@@ -555,26 +576,32 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
         </div>
         
         <div className="flex items-center gap-2">
-          <motion.button
+          <button
             onClick={copyFullResult}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-200 font-medium"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 font-medium"
+            style={{ 
+              position: 'static',
+              transform: 'none',
+              transition: 'background-color 0.2s ease'
+            }}
           >
             <Copy className="w-4 h-4" />
             Copy All
-          </motion.button>
+          </button>
           
           {hasTenant && (
-            <motion.button
+            <button
               onClick={() => copyTenantId(result.tenantInfo!.tenantId!)}
-              className="flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-xl hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors duration-200 font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-xl hover:bg-green-200 dark:hover:bg-green-900/50 font-medium"
+              style={{ 
+                position: 'static',
+                transform: 'none',
+                transition: 'background-color 0.2s ease'
+              }}
             >
               <Shield className="w-4 h-4" />
               Copy ID
-            </motion.button>
+            </button>
           )}
         </div>
       </div>
@@ -657,9 +684,13 @@ const InfoSection = memo<{
   const copyValue = useCallback(async (value: string) => {
     try {
       await navigator.clipboard.writeText(value);
-      toast.success('Copied to clipboard!');
+      const shortValue = value.length > 30 ? value.substring(0, 30) + '...' : value;
+      toast.success(`"${shortValue}" copied!`, {
+        icon: '📄',
+        duration: 2000
+      });
     } catch (error) {
-      toast.error('Failed to copy');
+      toast.error('Failed to copy value');
     }
   }, []);
 
@@ -714,16 +745,23 @@ const InfoSection = memo<{
               <span className="text-slate-900 dark:text-white font-mono text-sm bg-white/80 dark:bg-slate-900/80 px-3 py-2 pr-10 rounded-lg border border-slate-200/60 dark:border-slate-700/60 break-all block">
                 {item.value}
               </span>
-              <motion.button
-                onClick={() => copyValue(item.value)}
-                className={`absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 p-2 bg-gradient-to-r ${colors.copyBg} text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ transform: 'translateY(-50%)' }}
-                title="Copy to clipboard"
+              <div 
+                className="absolute right-2"
+                style={{ top: '50%', marginTop: '-20px' }}
               >
-                <Copy className="w-4 h-4" />
-              </motion.button>
+                <button
+                  onClick={() => copyValue(item.value)}
+                  className={`opacity-0 group-hover:opacity-100 p-2 bg-gradient-to-r ${colors.copyBg} text-white rounded-lg shadow-lg transition-opacity duration-200`}
+                  style={{ 
+                    position: 'static',
+                    transform: 'none',
+                    transition: 'opacity 0.2s ease'
+                  }}
+                  title="Copy to clipboard"
+                >
+                  <Copy className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         ))}

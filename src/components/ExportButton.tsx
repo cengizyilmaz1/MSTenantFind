@@ -1,4 +1,4 @@
-import React, { useCallback, useState, memo } from 'react';
+import React, { useCallback, useState, memo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, FileText, FileSpreadsheet, Code, Check, ChevronDown } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -20,6 +20,7 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const exportData = useCallback(async (format: ExportFormat) => {
     if (!data.length) {
@@ -114,6 +115,22 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
     }
   }, [data]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isOpen]);
+
   const exportFormats = [
     {
       format: 'csv' as ExportFormat,
@@ -148,7 +165,7 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
   };
 
   return (
-    <div className={cn("relative", className)}>
+    <div ref={dropdownRef} className={cn("relative", className)}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         disabled={isExporting}
@@ -184,15 +201,6 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9998] bg-black/10 backdrop-blur-sm"
-              onClick={() => setIsOpen(false)}
-            />
-
             {/* Dropdown Menu */}
             <motion.div
               initial={{ opacity: 0, y: -10, scale: 0.95 }}
