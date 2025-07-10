@@ -1,0 +1,48 @@
+User-agent: *
+Allow: /
+
+# Disallow non-essential paths
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /build/
+Disallow: /dist/
+Disallow: *.json$
+Disallow: *.md$
+Disallow: /package*
+Disallow: /yarn*
+Disallow: /webpack*
+Disallow: /tsconfig*
+Disallow: /vite*
+Disallow: /.env*
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /manifest.json
+Allow: /favicon.ico
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap location
+Sitemap: https://tenant-find.cengizyilmaz.org/sitemap.xml
+
+# Host preference
+Host: tenant-find.cengizyilmaz.org
+
+# Prevent duplicate content indexing
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /*utm_*
+
+# Prevent indexing of development/test files
+Disallow: /test/
+Disallow: /dev/
+Disallow: /sw.js
