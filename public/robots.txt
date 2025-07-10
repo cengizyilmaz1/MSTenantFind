@@ -46,3 +46,6 @@ Disallow: /*utm_*
 Disallow: /test/
 Disallow: /dev/
 Disallow: /sw.js
+
+# Allow search engines to crawl all pages
+Crawl-delay: 1
