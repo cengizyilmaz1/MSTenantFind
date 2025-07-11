@@ -19,31 +19,17 @@
 
   <!-- Blog Posts -->
   <url>
-    <loc>https://tenant-find.cengizyilmaz.org/blog/what-is-my-microsoft-tenant-id-how-to-find-it</loc>
+    <loc>https://tenant-find.cengizyilmaz.org/blog/what-is-microsoft-tenant-id-how-to-find-it</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tenant-find.cengizyilmaz.org/blog/complete-guide-microsoft-azure-tenant-discovery</loc>
+    <loc>https://tenant-find.cengizyilmaz.org/blog/microsoft-azure-tenant-discovery-advanced-techniques</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://tenant-find.cengizyilmaz.org/blog/office-365-tenant-id-vs-azure-ad-tenant-difference</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://tenant-find.cengizyilmaz.org/blog/how-to-get-organization-tenant-id-by-domain-name</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <!-- Author Page -->
