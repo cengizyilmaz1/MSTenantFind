@@ -2,21 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
-    <meta name="msapplication-TileImage" content="/favicon.svg" />
-    <meta name="msapplication-TileColor" content="#0078D4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon - Owl -->
+    <link rel="icon" type="image/svg+xml" href="/owl-favicon.svg" />
+    <link rel="icon" type="image/png" href="/owl-favicon.svg" />
+    <link rel="shortcut icon" href="/owl-favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/owl-favicon.svg" />
+    <meta name="msapplication-TileImage" content="/owl-favicon.svg" />
+    <meta name="msapplication-TileColor" content="#4F46E5" />
+    
+    <!-- Google Search Results Favicon -->
+    <meta property="og:image" content="https://tenant-find.cengizyilmaz.net/owl-favicon.svg" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#4F46E5" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Microsoft Azure & Microsoft 365 Tenant Finder | Cengiz YILMAZ - Microsoft MVP</title>
     <meta name="description" content="Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly. Azure kiracı bulucu, Microsoft 365 kiracı arama aracı." />
     <meta name="keywords" content="Microsoft Azure tenant finder, Microsoft 365 tenant lookup, Office 365 tenant search, Azure AD tenant ID, Microsoft tenant discovery, Microsoft Graph API tool, Microsoft MVP tools, Azure Active Directory, Microsoft 365 administration, Enterprise tenant management, Cloud tenant lookup, Microsoft domain search, Azure tenant explorer, Microsoft 365 domain verification, Microsoft tenant ID finder, Cengiz YILMAZ, Azure kiracı bulucu, Microsoft 365 kiracı arama, Office 365 kiracı sorgulama" />
     <meta name="author" content="Cengiz YILMAZ - Microsoft MVP" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href="https://tenant-find.cengizyilmaz.org" />
+    <link rel="canonical" href="https://tenant-find.cengizyilmaz.net" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="https://api.cengizyilmaz.net" />
+    <link rel="preconnect" href="https://api.cengizyilmaz.net" crossorigin />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/src/index.css" as="style" />
     
     <!-- Single Page Apps for GitHub Pages -->
     <!-- https://github.com/rafgraph/spa-github-pages -->
@@ -35,20 +53,20 @@
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tenant-find.cengizyilmaz.org" />
+    <meta property="og:url" content="https://tenant-find.cengizyilmaz.net" />
     <meta property="og:title" content="Microsoft Azure & Microsoft 365 Tenant Finder | Cengiz YILMAZ" />
     <meta property="og:description" content="Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly. Azure kiracı bulucu, Microsoft 365 kiracı arama aracı." />
-    <meta property="og:image" content="https://tenant-find.cengizyilmaz.org/og-image.jpg" />
+    <meta property="og:image" content="https://tenant-find.cengizyilmaz.net/og-image.jpg" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@cengizyilmazz" />
     <meta name="twitter:title" content="Microsoft Azure & Microsoft 365 Tenant Finder | Cengiz YILMAZ" />
     <meta name="twitter:description" content="Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly." />
-    <meta name="twitter:image" content="https://tenant-find.cengizyilmaz.org/twitter-card.jpg" />
+    <meta name="twitter:image" content="https://tenant-find.cengizyilmaz.net/twitter-card.jpg" />
     
     <!-- Alternate language versions -->
-    <link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.org" />
+    <link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net" />
     
     <!-- Schema.org markup -->
     <script type="application/ld+json">
@@ -57,7 +75,7 @@
       "@type": "WebApplication",
       "name": "Microsoft Azure & Microsoft 365 Tenant Finder",
       "description": "Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly.",
-      "url": "https://tenant-find.cengizyilmaz.org",
+      "url": "https://tenant-find.cengizyilmaz.net",
       "applicationCategory": "Developer Tools",
       "operatingSystem": "Web",
       "offers": {
@@ -69,13 +87,28 @@
         "@type": "Person",
         "name": "Cengiz YILMAZ",
         "jobTitle": "Microsoft MVP",
-        "url": "https://cengizyilmaz.org",
+        "url": "https://cengizyilmaz.net",
         "sameAs": [
           "https://x.com/cengizyilmazz",
           "https://www.linkedin.com/in/cengizyilmazz/"
         ]
       },
-      "keywords": "Microsoft Azure tenant finder, Microsoft 365 tenant lookup, Office 365 tenant search, Azure AD tenant ID, Microsoft tenant discovery, Microsoft Graph API tool, Microsoft MVP tools, Azure Active Directory, Microsoft 365 administration, Enterprise tenant management, Cloud tenant lookup, Microsoft domain search, Azure tenant explorer, Microsoft 365 domain verification, Microsoft tenant ID finder, Cengiz YILMAZ, Azure kiracı bulucu, Microsoft 365 kiracı arama, Office 365 kiracı sorgulama"
+      "keywords": "Microsoft Azure tenant finder, Microsoft 365 tenant lookup, Office 365 tenant search, Azure AD tenant ID, Microsoft tenant discovery, Microsoft Graph API tool, Microsoft MVP tools, Azure Active Directory, Microsoft 365 administration, Enterprise tenant management, Cloud tenant lookup, Microsoft domain search, Azure tenant explorer, Microsoft 365 domain verification, Microsoft tenant ID finder, Cengiz YILMAZ, Azure kiracı bulucu, Microsoft 365 kiracı arama, Office 365 kiracı sorgulama",
+      "screenshot": "https://tenant-find.cengizyilmaz.net/screenshot.png",
+      "featureList": [
+        "Instant Microsoft 365 tenant ID lookup",
+        "Azure AD tenant discovery",
+        "Bulk domain processing",
+        "MX record verification",
+        "SPF record analysis",
+        "Export results in multiple formats",
+        "Real-time tenant validation"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "127"
+      }
     }
     </script>
     

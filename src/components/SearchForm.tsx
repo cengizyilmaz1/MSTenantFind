@@ -1,11 +1,35 @@
 import React, { useState, useCallback, useMemo, useRef, memo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Upload, Download, Copy, Check, AlertCircle, Info, X, Sparkles, Globe, Shield, Clock, Zap, FileText, Keyboard, ExternalLink, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Search, Copy, Info, X, Clock, Zap } from 'lucide-react';
+import { 
+  FaCheckCircle, 
+  FaExclamationTriangle, 
+  FaTimesCircle,
+  FaShieldAlt,
+  FaEnvelope,
+  FaRegCopy,
+  FaIdCard,
+  FaClipboardList,
+  FaCloud,
+  FaMicrosoft
+} from 'react-icons/fa';
+import { 
+  BiError
+} from 'react-icons/bi';
+import { 
+  MdEmail, 
+  MdDomain,
+  MdError,
+  MdContentCopy
+} from 'react-icons/md';
+import { HiOutlineClipboardDocument } from 'react-icons/hi2';
+import { IoMdCloudDone } from 'react-icons/io';
 import toast from 'react-hot-toast';
 import ExportButton from './ExportButton';
 import LoadingSpinner from './LoadingSpinner';
 import { findTenantInfo, validateDomain, parseDomainsFromText } from '../utils/dns';
 import { cn } from '../utils/theme';
+import { siteConfig } from '../constants';
 import type { MultiDomainResult } from '../types';
 
 interface SearchFormProps {
@@ -24,7 +48,6 @@ const SearchForm: React.FC<SearchFormProps> = memo(({ className = '' }) => {
   const [results, setResults] = useState<MultiDomainResult[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Memoized stats calculation
@@ -47,7 +70,7 @@ const SearchForm: React.FC<SearchFormProps> = memo(({ className = '' }) => {
     if (!domains.trim()) return [];
     return parseDomainsFromText(domains)
       .filter(domain => validateDomain(domain))
-      .slice(0, 100); // Limit to 100 domains
+      .slice(0, siteConfig.features.maxDomainsPerSearch);
   }, [domains]);
 
   // Memoized validation
@@ -103,52 +126,10 @@ const SearchForm: React.FC<SearchFormProps> = memo(({ className = '' }) => {
     // Shift+Enter allows new line (default behavior)
   }, [handleSearch]);
 
-  const handleFileUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const text = e.target?.result as string;
-      if (text) {
-        setDomains(prev => prev ? `${prev}\n${text}` : text);
-        toast.success('File uploaded successfully!');
-      }
-    };
-    reader.readAsText(file);
-  }, []);
-
-  const downloadSampleFile = useCallback(() => {
-    const sampleContent = `contoso.com
-microsoft.com
-fabrikam.com
-adatum.com
-wingtiptoys.com
-fourthcoffee.com
-proseware.com
-nwtraders.com
-woodgrove.com
-tailwindcorp.com`;
-    
-    const blob = new Blob([sampleContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'sample-domains.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    toast.success('Sample file downloaded!');
-  }, []);
 
   const handleClear = useCallback(() => {
     setDomains('');
     setResults([]);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
     textareaRef.current?.focus();
   }, []);
 
@@ -195,58 +176,73 @@ tailwindcorp.com`;
     if (!results.length) return null;
 
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="mt-12 space-y-8"
-      >
-        {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatsCard icon={Globe} label="Total" value={stats.total} color="blue" />
-          <StatsCard icon={Check} label="Found" value={stats.found} color="green" />
-          <StatsCard icon={X} label="Not Found" value={stats.notFound} color="yellow" />
-          <StatsCard icon={AlertCircle} label="Errors" value={stats.errors} color="red" />
-        </div>
-
-        {/* Action Bar - Ultra Modern */}
+      <div className="space-y-6">
+        {/* Results Header with Actions */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="flex flex-wrap gap-4 justify-between items-center bg-gradient-to-r from-white/80 via-white/70 to-slate-50/60 dark:from-slate-800/80 dark:via-slate-800/70 dark:to-slate-900/60 backdrop-blur-2xl rounded-3xl p-8 border border-white/40 dark:border-slate-700/40 shadow-2xl relative z-10 overflow-visible"
+          transition={{ duration: 0.4 }}
+          className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-2xl p-4 border border-blue-200/40 dark:border-blue-800/40"
         >
-          <div className="flex flex-wrap items-center gap-4">
-            <motion.button
-              onClick={copyAllResults}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-200"
-            >
-              <Copy className="w-5 h-5" />
-              Copy All Results
-            </motion.button>
-            
-            <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-slate-100/80 dark:bg-slate-700/80 backdrop-blur-sm rounded-xl">
-              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                {results.length} result{results.length !== 1 ? 's' : ''} processed
-              </span>
+          <div className="flex flex-wrap gap-4 justify-between items-center">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <IoMdCloudDone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">
+                  {results.length} result{results.length !== 1 ? 's' : ''} found
+                </span>
+              </div>
+              
+              <button
+                onClick={copyAllResults}
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/60 dark:bg-slate-800/60 hover:bg-white/80 dark:hover:bg-slate-700/80 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-all duration-200 border border-gray-200/40 dark:border-gray-700/40"
+              >
+                <FaClipboardList className="w-3.5 h-3.5" />
+                <span>Copy All</span>
+              </button>
             </div>
-          </div>
-          
-          <div className="relative z-20">
-            <ExportButton data={results} variant="secondary" />
+            
+            <ExportButton data={results} variant="primary" size="sm" />
           </div>
         </motion.div>
 
-        {/* Results Grid */}
+        {/* Results Grid with Lazy Loading */}
         <div className="space-y-6">
-          {results.map((result, index) => (
+          {results.slice(0, 10).map((result, index) => (
             <ResultCard key={`${result.domain}-${index}`} result={result} />
           ))}
+          {results.length > 10 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-8"
+            >
+              <div className="inline-flex flex-col items-center gap-4">
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Showing 10 of {results.length} results
+                </div>
+                <button
+                  onClick={() => {
+                    const allResults = document.getElementById('all-results');
+                    if (allResults) {
+                      allResults.style.display = 'block';
+                      (event?.target as HTMLElement)?.parentElement?.parentElement?.remove();
+                    }
+                  }}
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-xl font-semibold shadow-lg transition-all duration-200"
+                >
+                  Show All Results
+                </button>
+              </div>
+            </motion.div>
+          )}
+          <div id="all-results" style={{ display: 'none' }} className="space-y-6">
+            {results.slice(10).map((result, index) => (
+              <ResultCard key={`${result.domain}-${index + 10}`} result={result} />
+            ))}
+          </div>
         </div>
-      </motion.div>
+      </div>
     );
   }, [results, stats, copyAllResults]);
 
@@ -259,11 +255,6 @@ tailwindcorp.com`;
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-xl rounded-full border border-blue-200/60 dark:border-blue-700/60 mb-8">
-          <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-          <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">Professional Microsoft Tool</span>
-        </div>
-
         <h1 className="text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
             Microsoft Tenant Finder
@@ -276,15 +267,15 @@ tailwindcorp.com`;
         </p>
       </motion.div>
 
-      {/* Main Search Form */}
+      {/* Main Search Form and Results */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-3xl p-8 lg:p-12 border border-white/20 dark:border-slate-700/20 shadow-2xl shadow-blue-500/10"
+        className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-3xl border border-white/20 dark:border-slate-700/20 shadow-2xl shadow-blue-500/10"
       >
         {/* Input Section */}
-        <div className="space-y-6">
+        <div className="p-8 lg:p-12 space-y-6">
           <div className="relative">
             <label className="block text-lg font-bold text-slate-900 dark:text-white mb-4">
               Enter Domain Names
@@ -336,12 +327,10 @@ Press Enter to search, Shift+Enter for new line"
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4">
-            <motion.button
+            <button
               onClick={handleSearch}
               disabled={!isValid || isLoading}
               className="flex-1 min-w-64 flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 disabled:from-slate-400 disabled:via-slate-500 disabled:to-slate-600 text-white rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 disabled:shadow-none disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
-              whileHover={isValid && !isLoading ? { scale: 1.02 } : {}}
-              whileTap={isValid && !isLoading ? { scale: 0.98 } : {}}
             >
               {isLoading ? (
                 <>
@@ -359,172 +348,49 @@ Press Enter to search, Shift+Enter for new line"
                   )}
                 </>
               )}
-            </motion.button>
+            </button>
           </div>
 
-          {/* File Actions */}
+          {/* Action Buttons */}
           <div className="flex flex-wrap gap-3">
-            <motion.label
-              className="flex items-center gap-2 px-4 py-3 bg-green-100/80 dark:bg-green-900/30 hover:bg-green-200/80 dark:hover:bg-green-900/50 text-green-700 dark:text-green-300 rounded-xl font-medium transition-all duration-300 cursor-pointer backdrop-blur-xl border border-green-200/60 dark:border-green-700/60"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Upload className="w-4 h-4" />
-              Upload File
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".txt,.csv"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
-            </motion.label>
-
-            <motion.button
-              onClick={downloadSampleFile}
-              className="flex items-center gap-2 px-4 py-3 bg-orange-100/80 dark:bg-orange-900/30 hover:bg-orange-200/80 dark:hover:bg-orange-900/50 text-orange-700 dark:text-orange-300 rounded-xl font-medium transition-all duration-300 backdrop-blur-xl border border-orange-200/60 dark:border-orange-700/60"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Download className="w-4 h-4" />
-              Download Sample
-            </motion.button>
-
             {domainList.length > 0 && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+              <button
                 onClick={copyDomains}
                 className="flex items-center gap-2 px-4 py-3 bg-purple-100/80 dark:bg-purple-900/30 hover:bg-purple-200/80 dark:hover:bg-purple-900/50 text-purple-700 dark:text-purple-300 rounded-xl font-medium transition-all duration-300 backdrop-blur-xl border border-purple-200/60 dark:border-purple-700/60"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <Copy className="w-4 h-4" />
                 Copy Domains
-              </motion.button>
+              </button>
             )}
 
             {(domains || results.length > 0) && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+              <button
                 onClick={handleClear}
                 className="flex items-center gap-2 px-4 py-3 bg-red-100/80 dark:bg-red-900/30 hover:bg-red-200/80 dark:hover:bg-red-900/50 text-red-700 dark:text-red-300 rounded-xl font-medium transition-all duration-300 backdrop-blur-xl border border-red-200/60 dark:border-red-700/60"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <X className="w-4 h-4" />
                 Clear All
-              </motion.button>
+              </button>
             )}
           </div>
         </div>
-      </motion.div>
 
-      {/* Search Results */}
-      {SearchResults}
+        {/* Search Results */}
+        {results.length > 0 && (
+          <div className="border-t border-gray-200/60 dark:border-gray-700/60">
+            <div className="p-8 lg:p-12">
+              {SearchResults}
+            </div>
+          </div>
+        )}
+      </motion.div>
     </div>
   );
 });
 
 SearchForm.displayName = 'SearchForm';
 
-// Memoized Stats Card Component - Ultra Modern
-const StatsCard = memo<{
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  value: number;
-  color: 'blue' | 'green' | 'yellow' | 'red';
-}>(({ icon: Icon, label, value, color }) => {
-  const colorSchemes = {
-    blue: {
-      gradient: 'from-blue-500 via-blue-600 to-cyan-500',
-      shadow: 'shadow-blue-500/25 hover:shadow-blue-500/40',
-      glow: 'shadow-blue-500/20',
-      border: 'border-blue-200/40 dark:border-blue-700/40'
-    },
-    green: {
-      gradient: 'from-emerald-500 via-green-600 to-emerald-500',
-      shadow: 'shadow-emerald-500/25 hover:shadow-emerald-500/40',
-      glow: 'shadow-emerald-500/20',
-      border: 'border-emerald-200/40 dark:border-emerald-700/40'
-    },
-    yellow: {
-      gradient: 'from-yellow-500 via-orange-600 to-amber-500',
-      shadow: 'shadow-yellow-500/25 hover:shadow-yellow-500/40',
-      glow: 'shadow-yellow-500/20',
-      border: 'border-yellow-200/40 dark:border-yellow-700/40'
-    },
-    red: {
-      gradient: 'from-red-500 via-rose-600 to-pink-500',
-      shadow: 'shadow-red-500/25 hover:shadow-red-500/40',
-      glow: 'shadow-red-500/20',
-      border: 'border-red-200/40 dark:border-red-700/40'
-    }
-  };
-
-  const scheme = colorSchemes[color];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      whileHover={{ scale: 1.05, y: -2 }}
-      transition={{ 
-        duration: 0.4,
-        ease: [0.21, 1.11, 0.81, 0.99],
-        hover: { duration: 0.2 }
-      }}
-      className={cn(
-        "relative overflow-hidden group",
-        "bg-gradient-to-br from-white/90 via-white/80 to-slate-50/70",
-        "dark:from-slate-800/90 dark:via-slate-800/80 dark:to-slate-900/70",
-        "backdrop-blur-xl rounded-3xl p-8 border",
-        scheme.border,
-        "shadow-xl hover:shadow-2xl",
-        scheme.glow,
-        "transition-all duration-300"
-      )}
-    >
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10 dark:opacity-20">
-        <div className={cn("absolute top-0 right-0 w-32 h-32 bg-gradient-to-br rounded-full blur-2xl", scheme.gradient)} />
-      </div>
-      
-      <div className="relative z-10 flex items-center gap-6">
-        <div className={cn(
-          "w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br shadow-xl relative overflow-hidden",
-          scheme.gradient
-        )}>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/20" />
-          <Icon className="w-8 h-8 text-white relative z-10 drop-shadow-lg" />
-        </div>
-        <div>
-          <motion.div 
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl font-black text-slate-900 dark:text-white mb-1 tracking-tight"
-          >
-            {value}
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-sm font-semibold text-slate-600 dark:text-slate-400 tracking-wide"
-          >
-            {label}
-          </motion.div>
-        </div>
-      </div>
-    </motion.div>
-  );
-});
-
-StatsCard.displayName = 'StatsCard';
-
-// Memoized Result Card Component - Ultra Modern Design
+// Memoized Result Card Component - Ultra Modern Design with Enhanced Colors
 const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
   const hasError = !!result.error;
   const hasTenant = !!result.tenantInfo?.tenantId;
@@ -537,7 +403,24 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
         duration: 2000
       });
     } catch (error) {
-      toast.error('Failed to copy Tenant ID');
+      console.error('Copy error:', error);
+      // Fallback for older browsers or permission issues
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = tenantId;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        toast.success('Tenant ID copied to clipboard!', {
+          icon: '🆔',
+          duration: 2000
+        });
+      } catch (fallbackError) {
+        toast.error('Failed to copy Tenant ID. Please copy manually.');
+      }
     }
   }, []);
 
@@ -549,7 +432,24 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
         duration: 2000
       });
     } catch (error) {
-      toast.error('Failed to copy domain');
+      console.error('Copy error:', error);
+      // Fallback for older browsers or permission issues
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = domain;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        toast.success(`Domain "${domain}" copied!`, {
+          icon: '🌐',
+          duration: 2000
+        });
+      } catch (fallbackError) {
+        toast.error('Failed to copy domain. Please copy manually.');
+      }
     }
   }, []);
 
@@ -582,234 +482,219 @@ const ResultCard = memo<{ result: MultiDomainResult }>(({ result }) => {
     }
   }, [result, hasTenant, hasError]);
 
-  const getStatusConfig = () => {
-    if (hasTenant) {
-      return {
-        iconBg: "bg-gradient-to-br from-emerald-400 via-emerald-500 to-green-600",
-        status: "FOUND",
-        statusBg: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300",
-        cardBorder: "border-emerald-200/40 dark:border-emerald-700/40",
-        glow: "shadow-emerald-500/10"
-      };
-    } else if (hasError) {
-      return {
-        iconBg: "bg-gradient-to-br from-red-400 via-red-500 to-rose-600",
-        status: "ERROR",
-        statusBg: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300",
-        cardBorder: "border-red-200/40 dark:border-red-700/40",
-        glow: "shadow-red-500/10"
-      };
-    } else {
-      return {
-        iconBg: "bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600",
-        status: "NOT FOUND",
-        statusBg: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400",
-        cardBorder: "border-slate-200/40 dark:border-slate-700/40",
-        glow: "shadow-slate-500/10"
-      };
-    }
-  };
-
-  const statusConfig = getStatusConfig();
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      whileHover={{ scale: 1.02, y: -4 }}
-      transition={{ 
-        duration: 0.5, 
-        ease: [0.21, 1.11, 0.81, 0.99],
-        hover: { duration: 0.3 }
-      }}
+    <div
       className={cn(
         "group relative overflow-hidden",
-        "bg-gradient-to-br from-white/98 via-white/95 to-slate-50/90",
-        "dark:from-slate-800/98 dark:via-slate-800/95 dark:to-slate-900/90",
-        "backdrop-blur-3xl rounded-[2rem] p-10 border-2",
-        statusConfig.cardBorder,
-        "shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_48px_80px_-12px_rgba(0,0,0,0.35)]",
-        statusConfig.glow,
-        "transition-all duration-700 hover:duration-300"
+        "bg-gradient-to-br",
+        hasTenant ? "from-emerald-50/50 via-white to-blue-50/50 dark:from-emerald-950/20 dark:via-gray-900 dark:to-blue-950/20" :
+        hasError ? "from-red-50/50 via-white to-orange-50/50 dark:from-red-950/20 dark:via-gray-900 dark:to-orange-950/20" :
+        "from-gray-50/50 via-white to-slate-50/50 dark:from-gray-900 dark:via-gray-900 dark:to-slate-900",
+        "rounded-3xl",
+        "shadow-lg hover:shadow-2xl",
+        "transition-all duration-300",
+        "border-2",
+        hasTenant ? "border-emerald-200/50 hover:border-emerald-300/70 dark:border-emerald-800/30 dark:hover:border-emerald-700/50" :
+        hasError ? "border-red-200/50 hover:border-red-300/70 dark:border-red-800/30 dark:hover:border-red-700/50" :
+        "border-gray-200/50 hover:border-gray-300/70 dark:border-gray-700/30 dark:hover:border-gray-600/50"
       )}
-      style={{
-        background: hasTenant 
-          ? 'linear-gradient(135deg, rgba(34,197,94,0.03) 0%, rgba(59,130,246,0.03) 100%)' 
-          : hasError 
-            ? 'linear-gradient(135deg, rgba(239,68,68,0.03) 0%, rgba(168,85,247,0.03) 100%)'
-            : 'linear-gradient(135deg, rgba(71,85,105,0.03) 0%, rgba(99,102,241,0.03) 100%)'
-      }}
     >
-      {/* Advanced Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]">
-        <div className="absolute top-0 -left-8 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-        <div className="absolute top-0 -right-8 w-96 h-96 bg-gradient-to-l from-purple-500 to-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute -bottom-12 left-24 w-96 h-96 bg-gradient-to-t from-pink-500 to-orange-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
-      </div>
-      
-      {/* Status accent line */}
+      {/* Premium gradient overlay */}
       <div className={cn(
-        "absolute top-0 left-0 right-0 h-1 rounded-t-[2rem]",
-        hasTenant ? "bg-gradient-to-r from-emerald-400 to-green-500" :
-        hasError ? "bg-gradient-to-r from-red-400 to-rose-500" :
-        "bg-gradient-to-r from-slate-300 to-slate-400"
+        "absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700",
+        hasTenant ? "bg-gradient-to-br from-emerald-400/10 via-transparent to-blue-400/10" :
+        hasError ? "bg-gradient-to-br from-red-400/10 via-transparent to-orange-400/10" :
+        "bg-gradient-to-br from-gray-400/5 via-transparent to-slate-400/5"
+      )} />
+      
+      {/* Animated gradient orb */}
+      <div className={cn(
+        "absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-30 transition-all duration-1000 group-hover:opacity-50",
+        hasTenant ? "bg-gradient-to-br from-emerald-400 to-blue-500" :
+        hasError ? "bg-gradient-to-br from-red-400 to-orange-500" :
+        "bg-gradient-to-br from-gray-400 to-slate-500"
       )} />
 
-             {/* Header Section */}
-       <div className="relative z-10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-10">
-         <div className="flex items-start gap-8">
-           {/* Status Icon */}
-           <div className="relative flex-shrink-0">
-             <div className={cn(
-               "w-28 h-28 rounded-[1.5rem] flex items-center justify-center shadow-[0_24px_48px_-12px_rgba(0,0,0,0.25)] overflow-hidden border-4 border-white/30 dark:border-white/10",
-               statusConfig.iconBg
-             )}>
-               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/20" />
-               <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
-               {hasTenant ? (
-                 <Check className="w-14 h-14 text-white relative z-10 drop-shadow-2xl" />
-               ) : hasError ? (
-                 <AlertCircle className="w-14 h-14 text-white relative z-10 drop-shadow-2xl" />
-               ) : (
-                 <X className="w-14 h-14 text-white relative z-10 drop-shadow-2xl" />
-               )}
-             </div>
-             
-             {/* Success Badge */}
-             {hasTenant && (
-               <motion.div
-                 className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(251,191,36,0.4)] border-3 border-white dark:border-slate-800"
-                 animate={{ 
-                   rotate: [0, 12, -12, 0],
-                   scale: [1, 1.15, 1]
-                 }}
-                 transition={{ 
-                   duration: 4, 
-                   repeat: Infinity, 
-                   ease: "easeInOut" 
-                 }}
-               >
-                 <Star className="w-5 h-5 text-white drop-shadow-lg" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-orange-600/30 to-transparent rounded-full" />
-               </motion.div>
-             )}
-           </div>
+      {/* Header Section */}
+      <div className="relative p-8">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-start gap-5">
+            {/* Modern Status Badge */}
+            <div className="relative">
+              <div className={cn(
+                "w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl transform rotate-3",
+                "ring-4 ring-offset-4 ring-offset-white dark:ring-offset-gray-900",
+                hasTenant ? "bg-gradient-to-br from-emerald-400 via-emerald-500 to-green-600 ring-emerald-200/50 dark:ring-emerald-800/50" :
+                hasError ? "bg-gradient-to-br from-red-400 via-red-500 to-rose-600 ring-red-200/50 dark:ring-red-800/50" :
+                "bg-gradient-to-br from-gray-400 via-gray-500 to-slate-600 ring-gray-200/50 dark:ring-gray-700/50"
+              )}>
+                {hasTenant ? (
+                  <FaCheckCircle className="w-8 h-8 text-white drop-shadow-lg" />
+                ) : hasError ? (
+                  <BiError className="w-9 h-9 text-white drop-shadow-lg" />
+                ) : (
+                  <MdError className="w-8 h-8 text-white drop-shadow-lg" />
+                )}
+              </div>
+              
+              {/* Status dot with pulse */}
+              <div className={cn(
+                "absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-3 border-white dark:border-gray-900",
+                hasTenant ? "bg-emerald-500" :
+                hasError ? "bg-red-500" :
+                "bg-gray-500"
+              )}>
+                <div className={cn(
+                  "absolute inset-0 rounded-full animate-ping",
+                  hasTenant ? "bg-emerald-400" :
+                  hasError ? "bg-red-400" :
+                  "bg-gray-400"
+                )} />
+              </div>
+            </div>
 
-           {/* Domain Info */}
-           <div className="flex-1 min-w-0">
-             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-               <h3 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight break-all leading-tight">
-                 {result.domain}
-               </h3>
-               <motion.button
-                 onClick={() => copyDomain(result.domain)}
-                 whileHover={{ scale: 1.15 }}
-                 whileTap={{ scale: 0.85 }}
-                 className="self-start sm:self-center opacity-0 group-hover:opacity-100 p-3.5 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 backdrop-blur-sm text-slate-600 dark:text-slate-300 rounded-2xl hover:from-slate-200 hover:to-slate-300 dark:hover:from-slate-600 dark:hover:to-slate-500 transition-all duration-300 shadow-lg hover:shadow-xl"
-               >
-                 <Copy className="w-5 h-5" />
-               </motion.button>
-             </div>
-             
-             <div className="flex flex-wrap items-center gap-4 mb-2">
-               <div className="flex items-center gap-2 px-3 py-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl shadow-sm">
-                 <Clock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                   {new Date(result.timestamp).toLocaleString()}
-                 </span>
-               </div>
-               <div className={cn(
-                 "px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-lg border border-white/20",
-                 statusConfig.statusBg
-               )}>
-                 {statusConfig.status}
-               </div>
-             </div>
-           </div>
-         </div>
-        
-                 {/* Action Buttons */}
-         <div className="flex flex-wrap gap-3 lg:flex-nowrap">
-           <motion.button
-             onClick={copyFullResult}
-             whileHover={{ scale: 1.05, y: -2 }}
-             whileTap={{ scale: 0.95 }}
-             className="flex items-center gap-3 px-6 py-3.5 bg-gradient-to-r from-blue-500 via-blue-600 to-indigo-600 hover:from-blue-600 hover:via-blue-700 hover:to-indigo-700 text-white rounded-2xl font-bold shadow-[0_8px_32px_rgba(59,130,246,0.3)] hover:shadow-[0_12px_40px_rgba(59,130,246,0.4)] transition-all duration-300 border border-blue-400/20"
-           >
-             <Copy className="w-5 h-5" />
-             Copy All
-           </motion.button>
-           
-           {hasTenant && (
-             <motion.button
-               onClick={() => copyTenantId(result.tenantInfo!.tenantId!)}
-               whileHover={{ scale: 1.05, y: -2 }}
-               whileTap={{ scale: 0.95 }}
-               className="flex items-center gap-3 px-6 py-3.5 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-600 hover:via-green-600 hover:to-emerald-700 text-white rounded-2xl font-bold shadow-[0_8px_32px_rgba(34,197,94,0.3)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.4)] transition-all duration-300 border border-emerald-400/20"
-             >
-               <Shield className="w-5 h-5" />
-               Copy ID
-             </motion.button>
-           )}
-         </div>
+            {/* Domain Info */}
+            <div className="flex-1 min-w-0">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <MdDomain className="w-6 h-6 text-gray-400" />
+                {result.domain}
+              </h3>
+              <div className="flex items-center gap-3 mt-2">
+                <span className={cn(
+                  "inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold backdrop-blur-sm",
+                  hasTenant ? "bg-emerald-100/80 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60" :
+                  hasError ? "bg-red-100/80 text-red-800 dark:bg-red-900/40 dark:text-red-300 border border-red-200/60 dark:border-red-800/60" :
+                  "bg-gray-100/80 text-gray-800 dark:bg-gray-800/40 dark:text-gray-300 border border-gray-200/60 dark:border-gray-700/60"
+                )}>
+                  <div className={cn(
+                    "w-2 h-2 rounded-full animate-pulse",
+                    hasTenant ? "bg-emerald-500" :
+                    hasError ? "bg-red-500" :
+                    "bg-gray-500"
+                  )} />
+                  {hasTenant ? "Microsoft Tenant Verified" :
+                   hasError ? "Connection Error" :
+                   "No Microsoft Services"}
+                </span>
+                <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  {new Date(result.timestamp).toLocaleDateString()} {new Date(result.timestamp).toLocaleTimeString()}
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => copyDomain(result.domain)}
+              className="p-3.5 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700"
+              title="Copy domain"
+              style={{ transition: 'none' }}
+            >
+              <FaRegCopy className="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              onClick={copyFullResult}
+              className="p-3.5 text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800"
+              title="Copy all data"
+              style={{ transition: 'none' }}
+            >
+              <HiOutlineClipboardDocument className="w-5 h-5" />
+            </button>
+            {hasTenant && (
+              <button
+                type="button"
+                onClick={() => copyTenantId(result.tenantInfo!.tenantId!)}
+                className="p-3.5 text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/20 rounded-xl border border-emerald-200 dark:border-emerald-800"
+                title="Copy Tenant ID"
+                style={{ transition: 'none' }}
+              >
+                <FaIdCard className="w-5 h-5" />
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
-             {/* Content Section */}
-       <div className="relative z-10">
-         {hasError ? (
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.4, delay: 0.2 }}
-             className="bg-gradient-to-br from-red-50/95 via-red-100/80 to-rose-50/70 dark:from-red-900/40 dark:via-red-900/30 dark:to-rose-900/20 border-2 border-red-200/70 dark:border-red-700/50 rounded-2xl p-8 backdrop-blur-sm shadow-lg"
-           >
-             <div className="flex items-start gap-6">
-               <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                 <AlertCircle className="w-7 h-7 text-white drop-shadow-sm" />
-               </div>
-               <div className="flex-1 min-w-0">
-                 <h4 className="text-xl font-bold text-red-800 dark:text-red-200 mb-2">Error Occurred</h4>
-                 <p className="text-red-700 dark:text-red-300 leading-relaxed">{result.error}</p>
-                 <div className="mt-4 text-sm text-red-600 dark:text-red-400 bg-red-100/50 dark:bg-red-800/20 px-4 py-2 rounded-lg">
-                   This domain may not be associated with Microsoft services or there might be a network issue.
-                 </div>
-               </div>
-             </div>
-           </motion.div>
-         ) : hasTenant ? (
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.4, delay: 0.2 }}
-             className="space-y-6"
-           >
-             <TenantInfoDisplay tenantInfo={result.tenantInfo!} />
-           </motion.div>
-         ) : (
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.4, delay: 0.2 }}
-             className="bg-gradient-to-br from-slate-50/95 via-slate-100/80 to-gray-50/70 dark:from-slate-800/95 dark:via-slate-800/80 dark:to-slate-900/70 border-2 border-slate-200/70 dark:border-slate-700/50 rounded-2xl p-8 backdrop-blur-sm shadow-lg"
-           >
-             <div className="flex items-start gap-6">
-               <div className="w-14 h-14 bg-gradient-to-r from-slate-500 to-gray-500 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                 <Info className="w-7 h-7 text-white drop-shadow-sm" />
-               </div>
-               <div className="flex-1 min-w-0">
-                 <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">No Tenant Found</h4>
-                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">No Microsoft tenant found for this domain. This could mean:</p>
-                 <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside bg-slate-100/50 dark:bg-slate-800/20 px-4 py-3 rounded-lg">
-                   <li>The domain is not associated with Microsoft services</li>
-                   <li>The domain uses a different email provider</li>
-                   <li>The domain has not been verified with Microsoft</li>
-                 </ul>
-               </div>
-             </div>
-           </motion.div>
+      {/* Gradient Divider */}
+      <div className="px-8">
+        <div className={cn(
+          "h-px bg-gradient-to-r",
+          hasTenant ? "from-transparent via-emerald-200 to-transparent dark:via-emerald-800" :
+          hasError ? "from-transparent via-red-200 to-transparent dark:via-red-800" :
+          "from-transparent via-gray-200 to-transparent dark:via-gray-700"
+        )} />
+      </div>
+      
+      {/* Content Section */}
+      <div className="p-8 pt-4">
+        {hasError ? (
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-gradient-to-r from-red-50/80 to-rose-50/80 dark:from-red-950/30 dark:to-rose-950/30 rounded-2xl p-5 border-2 border-red-200/50 dark:border-red-800/50 backdrop-blur-sm"
+          >
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-red-100 dark:bg-red-900/50 rounded-xl">
+                <FaExclamationTriangle className="w-6 h-6 text-red-600 dark:text-red-400" />
+              </div>
+              <div className="flex-1">
+                <h4 className="text-base font-semibold text-red-900 dark:text-red-100 mb-2 flex items-center gap-2">
+                  <BiError className="w-5 h-5" />
+                  Connection Error
+                </h4>
+                <p className="text-sm text-red-700 dark:text-red-300 leading-relaxed">{result.error}</p>
+              </div>
+            </div>
+          </motion.div>
+        ) : hasTenant ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <TenantInfoDisplay tenantInfo={result.tenantInfo!} />
+          </motion.div>
+        ) : (
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-gradient-to-r from-gray-50/80 to-slate-50/80 dark:from-gray-900/30 dark:to-slate-900/30 rounded-2xl p-5 border-2 border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm"
+          >
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-gray-100 dark:bg-gray-800/50 rounded-xl">
+                <MdError className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+              </div>
+              <div className="flex-1">
+                <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center gap-2">
+                  <Info className="w-5 h-5" />
+                  No Microsoft Tenant
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">This domain is not associated with Microsoft services.</p>
+                <div className="space-y-2 text-sm text-gray-500 dark:text-gray-500">
+                  <div className="flex items-start gap-2">
+                    <FaTimesCircle className="w-4 h-4 mt-0.5 text-gray-400" />
+                    <span>No Microsoft 365 or Azure AD tenant detected</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <FaEnvelope className="w-4 h-4 mt-0.5 text-gray-400" />
+                    <span>May use a different email provider</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <FaCloud className="w-4 h-4 mt-0.5 text-gray-400" />
+                    <span>Domain not verified with Microsoft</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
          )}
        </div>
-    </motion.div>
+    </div>
   );
 });
 
@@ -817,10 +702,10 @@ ResultCard.displayName = 'ResultCard';
 
 // Memoized Tenant Info Display Component - Enhanced
 const TenantInfoDisplay = memo<{ tenantInfo: NonNullable<MultiDomainResult['tenantInfo']> }>(({ tenantInfo }) => (
-  <div className="grid md:grid-cols-2 gap-6">
+  <div className="space-y-4">
     <InfoSection 
-      title="Tenant Information" 
-      icon={Shield}
+      title="Microsoft Tenant Details" 
+      icon={FaMicrosoft}
       type="tenant"
       items={[
         { label: 'Tenant ID', value: tenantInfo.tenantId },
@@ -830,11 +715,11 @@ const TenantInfoDisplay = memo<{ tenantInfo: NonNullable<MultiDomainResult['tena
     
     {tenantInfo.mxRecords && tenantInfo.mxRecords.length > 0 && (
       <InfoSection 
-        title="MX Records" 
-        icon={Globe}
+        title="Mail Exchange Records" 
+        icon={MdEmail}
         type="mx"
         items={tenantInfo.mxRecords.map((record, index) => ({
-          label: `MX ${index + 1}`,
+          label: `MX Record ${index + 1}`,
           value: typeof record === 'string' ? record : record.host || 'Unknown'
         }))}
       />
@@ -842,11 +727,11 @@ const TenantInfoDisplay = memo<{ tenantInfo: NonNullable<MultiDomainResult['tena
     
     {tenantInfo.spfRecord && (
       <InfoSection 
-        title="SPF Record" 
-        icon={FileText}
+        title="SPF Authentication" 
+        icon={FaShieldAlt}
         type="spf"
         items={[{
-          label: 'SPF',
+          label: 'SPF Record',
           value: typeof tenantInfo.spfRecord === 'string' 
             ? tenantInfo.spfRecord 
             : tenantInfo.spfRecord.record || 'Available'
@@ -874,7 +759,25 @@ const InfoSection = memo<{
         duration: 2000
       });
     } catch (error) {
-      toast.error('Failed to copy value');
+      console.error('Copy error:', error);
+      // Fallback for older browsers or permission issues
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = value;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        const shortValue = value.length > 30 ? value.substring(0, 30) + '...' : value;
+        toast.success(`"${shortValue}" copied!`, {
+          icon: '📄',
+          duration: 2000
+        });
+      } catch (fallbackError) {
+        toast.error('Failed to copy value. Please copy manually.');
+      }
     }
   }, []);
 
@@ -882,35 +785,35 @@ const InfoSection = memo<{
     switch (type) {
       case 'tenant':
         return {
-          background: 'bg-gradient-to-br from-emerald-50/95 via-green-50/80 to-emerald-100/60 dark:from-emerald-900/25 dark:via-green-900/20 dark:to-emerald-900/15',
-          border: 'border-emerald-200/70 dark:border-emerald-700/50',
-          iconBg: 'bg-gradient-to-r from-emerald-500 to-green-500',
-          copyBg: 'from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600',
-          headerGlow: 'shadow-emerald-500/20'
+          background: 'bg-gray-50 dark:bg-gray-800',
+          border: 'border-gray-200 dark:border-gray-700',
+          iconBg: 'bg-emerald-500',
+          copyBg: '',
+          headerGlow: ''
         };
       case 'mx':
         return {
-          background: 'bg-gradient-to-br from-orange-50/95 via-amber-50/80 to-orange-100/60 dark:from-orange-900/25 dark:via-amber-900/20 dark:to-orange-900/15',
-          border: 'border-orange-200/70 dark:border-orange-700/50',
-          iconBg: 'bg-gradient-to-r from-orange-500 to-amber-500',
-          copyBg: 'from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600',
-          headerGlow: 'shadow-orange-500/20'
+          background: 'bg-gray-50 dark:bg-gray-800',
+          border: 'border-gray-200 dark:border-gray-700',
+          iconBg: 'bg-orange-500',
+          copyBg: '',
+          headerGlow: ''
         };
       case 'spf':
         return {
-          background: 'bg-gradient-to-br from-purple-50/95 via-violet-50/80 to-purple-100/60 dark:from-purple-900/25 dark:via-violet-900/20 dark:to-purple-900/15',
-          border: 'border-purple-200/70 dark:border-purple-700/50',
-          iconBg: 'bg-gradient-to-r from-purple-500 to-violet-500',
-          copyBg: 'from-purple-500 to-violet-500 hover:from-purple-600 hover:to-violet-600',
-          headerGlow: 'shadow-purple-500/20'
+          background: 'bg-gray-50 dark:bg-gray-800',
+          border: 'border-gray-200 dark:border-gray-700',
+          iconBg: 'bg-purple-500',
+          copyBg: '',
+          headerGlow: ''
         };
       default:
         return {
-          background: 'bg-gradient-to-br from-slate-50/95 via-slate-50/80 to-slate-100/60 dark:from-slate-800/95 dark:via-slate-800/80 dark:to-slate-800/60',
-          border: 'border-slate-200/70 dark:border-slate-700/50',
-          iconBg: 'bg-gradient-to-r from-blue-500 to-indigo-500',
-          copyBg: 'from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600',
-          headerGlow: 'shadow-blue-500/20'
+          background: 'bg-gray-50 dark:bg-gray-800',
+          border: 'border-gray-200 dark:border-gray-700',
+          iconBg: 'bg-blue-500',
+          copyBg: '',
+          headerGlow: ''
         };
     }
   };
@@ -918,67 +821,54 @@ const InfoSection = memo<{
   const colors = getColorScheme(type);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className={cn(
-        colors.background,
-        colors.border,
-        "rounded-2xl p-6 border backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300"
-      )}
-    >
+    <div className={cn(
+      "bg-white dark:bg-gray-900",
+      "rounded-lg border",
+      "border-gray-100 dark:border-gray-800",
+      "overflow-hidden"
+    )}>
       {/* Header */}
-      <div className="flex items-center gap-4 mb-6">
-        <div className={cn(
-          "w-12 h-12 rounded-xl flex items-center justify-center shadow-lg",
-          colors.iconBg,
-          colors.headerGlow
-        )}>
-          <Icon className="w-6 h-6 text-white" />
+      <div className={cn(
+        "px-4 py-3 border-b border-gray-100 dark:border-gray-800",
+        colors.background
+      )}>
+        <div className="flex items-center gap-3">
+          <div className={cn(
+              "w-10 h-10 rounded-xl flex items-center justify-center shadow-lg",
+              colors.iconBg || 'bg-gradient-to-br from-gray-500 to-gray-600'
+            )}
+          >
+            <Icon className="w-5 h-5 text-white drop-shadow" />
+          </div>
+          <h4 className="text-base font-bold text-gray-900 dark:text-white">{title}</h4>
         </div>
-        <h4 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h4>
       </div>
       
-             {/* Items */}
-       <div className="space-y-4">
-         {items.map((item, index) => (
-           <motion.div 
-             key={index} 
-             initial={{ opacity: 0, x: -10 }}
-             animate={{ opacity: 1, x: 0 }}
-             transition={{ delay: index * 0.1 }}
-             className="group"
-           >
-             <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 block">
-               {item.label}
-             </label>
-             <div className="flex items-center gap-3">
-               <div className="flex-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border-2 border-slate-200/60 dark:border-slate-700/60 rounded-xl p-4 shadow-sm group-hover:shadow-md transition-all duration-200">
-                 <span className="text-slate-900 dark:text-white font-mono text-sm break-all leading-relaxed block">
-                   {item.value}
-                 </span>
-               </div>
-               <motion.button
-                 onClick={() => copyValue(item.value)}
-                 whileHover={{ scale: 1.1 }}
-                 whileTap={{ scale: 0.9 }}
-                 className={cn(
-                   "opacity-0 group-hover:opacity-100",
-                   "p-3 bg-gradient-to-r text-white rounded-xl shadow-lg",
-                   "transition-all duration-200 hover:shadow-xl",
-                   "flex-shrink-0",
-                   colors.copyBg
-                 )}
-                 title="Copy to clipboard"
-               >
-                 <Copy className="w-4 h-4" />
-               </motion.button>
-             </div>
-           </motion.div>
-         ))}
-       </div>
-    </motion.div>
+      {/* Items */}
+      <div className="p-4 space-y-2">
+        {items.map((item, index) => (
+          <div key={index} className="flex items-start justify-between gap-2">
+            <div className="flex-1 min-w-0">
+              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-0.5">
+                {item.label}
+              </div>
+              <div className="text-sm text-gray-900 dark:text-white font-mono break-all">
+                {item.value}
+              </div>
+            </div>
+            <button
+              onClick={() => copyValue(item.value)}
+              className="flex-shrink-0 p-3 text-gray-600 dark:text-gray-400 rounded-lg bg-gray-100 dark:bg-gray-800"
+              title="Copy to clipboard"
+              type="button"
+              style={{ transition: 'none' }}
+            >
+              <MdContentCopy className="w-4 h-4" />
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 });
 

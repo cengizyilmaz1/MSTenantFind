@@ -20,13 +20,13 @@ const SEO: React.FC<SEOProps> = memo(({
   keywords = 'Microsoft Tenant ID, Azure Tenant, Office 365, Microsoft 365, Tenant Finder, DNS, MX Records, SPF, Azure AD, Microsoft Graph',
   path = '/',
   type = 'website',
-  image = 'https://tenant-find.cengizyilmaz.org/logo.svg',
+  image = 'https://tenant-find.cengizyilmaz.net/owl-favicon.svg',
   author = 'Cengiz Yılmaz',
   publishedTime,
   modifiedTime,
   canonicalUrl
 }) => {
-  const siteUrl = 'https://tenant-find.cengizyilmaz.org';
+  const siteUrl = 'https://tenant-find.cengizyilmaz.net';
   const fullUrl = `${siteUrl}${path}`;
   const canonical = canonicalUrl || fullUrl;
 
@@ -108,7 +108,7 @@ const SEO: React.FC<SEOProps> = memo(({
           "author": {
             "@type": "Person",
             "name": author,
-            "url": "https://cengizyilmaz.org"
+            "url": "https://cengizyilmaz.net"
           },
           "publisher": {
             "@type": "Organization",

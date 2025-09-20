@@ -8,7 +8,10 @@ import type { MultiDomainResult } from '../types';
 interface ExportButtonProps {
   data: MultiDomainResult[];
   variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
+  disabled?: boolean;
+  fileName?: string;
 }
 
 type ExportFormat = 'json' | 'csv' | 'txt';
@@ -16,7 +19,10 @@ type ExportFormat = 'json' | 'csv' | 'txt';
 const ExportButton: React.FC<ExportButtonProps> = memo(({ 
   data, 
   variant = 'primary',
-  className = ''
+  size = 'md',
+  className = '',
+  disabled = false,
+  fileName = 'tenant-search-results'
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
@@ -39,7 +45,7 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
       switch (format) {
         case 'json':
           content = JSON.stringify(data, null, 2);
-          filename = `tenant-results-${new Date().toISOString().split('T')[0]}.json`;
+          filename = `${fileName}-${new Date().toISOString().split('T')[0]}.json`;
           mimeType = 'application/json';
           break;
 
@@ -59,7 +65,7 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
           content = [csvHeaders.join(','), ...csvRows.map(row => 
             row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')
           )].join('\n');
-          filename = `tenant-results-${new Date().toISOString().split('T')[0]}.csv`;
+          filename = `${fileName}-${new Date().toISOString().split('T')[0]}.csv`;
           mimeType = 'text/csv';
           break;
 
@@ -85,7 +91,7 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
             resultText += `Timestamp: ${new Date(result.timestamp).toLocaleString()}\n`;
             return resultText;
           }).join('\n' + '='.repeat(50) + '\n\n');
-          filename = `tenant-results-${new Date().toISOString().split('T')[0]}.txt`;
+          filename = `${fileName}-${new Date().toISOString().split('T')[0]}.txt`;
           mimeType = 'text/plain';
           break;
 
@@ -160,17 +166,30 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
   }
 
   const buttonVariants = {
-    primary: "bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white shadow-2xl shadow-green-500/25 hover:shadow-green-500/40",
-    secondary: "bg-white/80 dark:bg-slate-800/80 hover:bg-white/90 dark:hover:bg-slate-700/90 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 shadow-xl"
+    primary: "bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-green-500/25 hover:shadow-green-500/40",
+    secondary: "bg-white/80 dark:bg-slate-800/80 hover:bg-white/90 dark:hover:bg-slate-700/90 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 shadow-md"
+  };
+
+  const sizeClasses = {
+    sm: "px-4 py-2 text-sm gap-2",
+    md: "px-6 py-3 text-base gap-3",
+    lg: "px-8 py-4 text-lg gap-3"
+  };
+
+  const iconSizes = {
+    sm: "w-4 h-4",
+    md: "w-5 h-5",
+    lg: "w-6 h-6"
   };
 
   return (
     <div ref={dropdownRef} className={cn("relative", className)}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        disabled={isExporting}
+        disabled={isExporting || disabled}
         className={cn(
-          "flex items-center gap-3 px-6 py-3 rounded-2xl font-bold text-lg transition-all duration-300 backdrop-blur-xl disabled:opacity-50 disabled:cursor-not-allowed",
+          "flex items-center rounded-2xl font-semibold transition-all duration-300 backdrop-blur-xl disabled:opacity-50 disabled:cursor-not-allowed",
+          sizeClasses[size],
           buttonVariants[variant]
         )}
         whileHover={{ scale: 1.02 }}
@@ -178,21 +197,23 @@ const ExportButton: React.FC<ExportButtonProps> = memo(({
       >
         {isExporting ? (
           <>
-            <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
+            <div className={cn("border-2 border-current border-t-transparent rounded-full animate-spin", iconSizes[size])} />
             <span>Exporting...</span>
           </>
         ) : (
           <>
-            <Download className="w-5 h-5" />
-            <span>Export Results</span>
-            <span className="bg-white/20 dark:bg-slate-700/50 px-2 py-1 rounded-lg text-sm">
-              {data.length}
-            </span>
+            <Download className={iconSizes[size]} />
+            <span>{size === 'sm' ? 'Export' : 'Export Results'}</span>
+            {size !== 'sm' && (
+              <span className="bg-white/20 dark:bg-slate-700/50 px-2 py-0.5 rounded-lg text-xs">
+                {data.length}
+              </span>
+            )}
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.2 }}
             >
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className={iconSizes[size]} />
             </motion.div>
           </>
         )}

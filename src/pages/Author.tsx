@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, MapPin, Calendar, Briefcase, Mail, Globe, ExternalLink, Star, Users, Target } from 'lucide-react';
+import { siteConfig } from '../constants';
 
 const Author: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Author: React.FC = () => {
             <Award className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-700 to-indigo-700 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent mb-4">
-            Hello, I'm Cengiz YILMAZ
+            Hello, I'm {siteConfig.author.name}
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-6">
             Microsoft MVP & Microsoft Certified Trainer
@@ -229,7 +230,7 @@ const Author: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-                                      href="mailto:cengiz@cengizyilmaz.org"
+                                      href={`mailto:${siteConfig.author.email}`}
               className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/25"
             >
               <Mail className="w-5 h-5" />
@@ -237,7 +238,7 @@ const Author: React.FC = () => {
             </a>
             
             <a 
-                                      href="https://cengizyilmaz.org" 
+                                      href={siteConfig.author.website} 
               target="_blank" 
               rel="dofollow"
               className="inline-flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-xl border border-slate-200 dark:border-slate-700"

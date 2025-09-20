@@ -114,7 +114,7 @@ const Privacy: React.FC = () => {
               If you have any questions about this privacy policy, please contact us through our website or social media channels.
             </p>
             <a 
-                              href="https://cengizyilmaz.org" 
+                              href="https://cengizyilmaz.net" 
               target="_blank" 
               rel="dofollow"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/25"

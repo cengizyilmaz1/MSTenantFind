@@ -1,4 +1,5 @@
 import type { SPFRecord, TenantInfo } from '../types';
+import { DOMAIN_REGEX, MAX_DOMAIN_LENGTH, siteConfig } from '../constants';
 
 // Simplified MX Record interface - sadece host bilgisi yeterli
 export interface MXRecordInfo {
@@ -13,7 +14,7 @@ async function sleep(ms: number): Promise<void> {
 
 // Rate limited fetch function
 let lastApiCallTime = 0;
-const API_RATE_LIMIT = 300; // ms
+const API_RATE_LIMIT = siteConfig.rateLimit.ms;
 
 async function rateLimitedFetch(url: string, options: RequestInit = {}): Promise<Response> {
   const now = Date.now();
@@ -31,10 +32,7 @@ async function rateLimitedFetch(url: string, options: RequestInit = {}): Promise
 export function validateDomain(domain: string): boolean {
   if (!domain || typeof domain !== 'string') return false;
   
-  // Basic domain validation regex
-  const domainRegex = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  
-  return domainRegex.test(domain.trim()) && domain.length <= 253;
+  return DOMAIN_REGEX.test(domain.trim()) && domain.length <= MAX_DOMAIN_LENGTH;
 }
 
 // Parse domains from text input

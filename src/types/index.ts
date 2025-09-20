@@ -29,21 +29,3 @@ export interface MultiDomainResult {
   error?: string;
   timestamp: string;
 }
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  publishedAt: string;
-  updatedAt: string;
-  tags: string[];
-  category: string;
-  readTime: number;
-  featured?: boolean;
-  seoTitle?: string;
-  seoDescription?: string;
-  seoKeywords?: string[];
-}

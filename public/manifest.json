@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "theme_color": "#4F46E5",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en",
@@ -13,16 +13,16 @@
   "categories": ["business", "developer", "productivity", "utilities"],
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/owl-favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo.svg",
-      "sizes": "any",
+      "src": "/owl-favicon.svg",
+      "sizes": "512x512",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "shortcuts": [
@@ -33,20 +33,7 @@
       "url": "/?action=search",
       "icons": [
         {
-          "src": "/logo.svg",
-          "sizes": "any",
-          "type": "image/svg+xml"
-        }
-      ]
-    },
-    {
-      "name": "Blog",
-      "short_name": "Blog",
-      "description": "Read articles about Microsoft tenant management",
-      "url": "/blog",
-      "icons": [
-        {
-          "src": "/logo.svg",
+          "src": "/owl-favicon.svg",
           "sizes": "any",
           "type": "image/svg+xml"
         }

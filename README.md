@@ -4,7 +4,7 @@ Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft M
 
 ## 🌐 Live Demo
 
-[https://tenant-find.cengizyilmaz.org](https://tenant-find.cengizyilmaz.org)
+[https://tenant-find.cengizyilmaz.net](https://tenant-find.cengizyilmaz.net)
 
 ## 🚀 Deployment
 
@@ -73,7 +73,7 @@ npm run preview
 
 ## 🌐 Custom Domain
 
-The site is configured to use the custom domain `tenant-find.cengizyilmaz.org` through:
+The site is configured to use the custom domain `tenant-find.cengizyilmaz.net` through:
 
 1. `public/CNAME` file
 2. DNS CNAME record pointing to GitHub Pages
@@ -101,6 +101,6 @@ The project is configured for GitHub Pages deployment with:
 ## 👨‍💻 Author
 
 **Cengiz YILMAZ** - Microsoft MVP
-- Website: [cengizyilmaz.org](https://cengizyilmaz.org)
+- Website: [cengizyilmaz.net](https://cengizyilmaz.net)
 - Twitter: [@cengizyilmazz](https://x.com/cengizyilmazz)
 - LinkedIn: [cengizyilmaz](https://www.linkedin.com/in/cengizyilmazz/) 

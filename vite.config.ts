@@ -30,7 +30,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           ui: ['framer-motion', 'lucide-react'],
           router: ['react-router-dom'],
-          utils: ['react-hot-toast', 'react-helmet']
+          utils: ['react-hot-toast', 'react-helmet-async']
         },
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
