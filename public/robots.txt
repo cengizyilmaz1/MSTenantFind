@@ -1,0 +1,59 @@
+# Microsoft Tenant Finder - Robots.txt
+# https://tenant-find.cengizyilmaz.net
+# Last updated: 2025-12-10
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /assets/js/*.map
+
+# Search Engine Crawlers - Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Search Engine Crawlers - Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Search Engine Crawlers - Yahoo
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Search Engine Crawlers - DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Search Engine Crawlers - Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Search Engine Crawlers - Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Sitemap Location
+Sitemap: https://tenant-find.cengizyilmaz.net/sitemap.xml
+
+# Block bad bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

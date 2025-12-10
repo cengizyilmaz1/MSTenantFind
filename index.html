@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Favicon - Owl -->
+    <link rel="icon" type="image/svg+xml" href="/owl-favicon.svg" />
+    <link rel="icon" type="image/png" href="/owl-favicon.svg" />
+    <link rel="shortcut icon" href="/owl-favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/owl-favicon.svg" />
+    <meta name="msapplication-TileImage" content="/owl-favicon.svg" />
+    <meta name="msapplication-TileColor" content="#4F46E5" />
+    
+    <!-- Google Search Results Favicon -->
+    <meta property="og:image" content="https://tenant-find.cengizyilmaz.net/owl-favicon.svg" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#4F46E5" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Microsoft Azure & Microsoft 365 Tenant Finder | Cengiz YILMAZ - Microsoft MVP</title>
+    <meta name="description" content="Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly. Azure kiracı bulucu, Microsoft 365 kiracı arama aracı." />
+    <meta name="keywords" content="Microsoft Azure tenant finder, Microsoft 365 tenant lookup, Office 365 tenant search, Azure AD tenant ID, Microsoft tenant discovery, Microsoft Graph API tool, Microsoft MVP tools, Azure Active Directory, Microsoft 365 administration, Enterprise tenant management, Cloud tenant lookup, Microsoft domain search, Azure tenant explorer, Microsoft 365 domain verification, Microsoft tenant ID finder, Cengiz YILMAZ, Azure kiracı bulucu, Microsoft 365 kiracı arama, Office 365 kiracı sorgulama" />
+    <meta name="author" content="Cengiz YILMAZ - Microsoft MVP" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://tenant-find.cengizyilmaz.net" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="https://api.cengizyilmaz.net" />
+    <link rel="dns-prefetch" href="https://login.microsoftonline.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://api.cengizyilmaz.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://login.microsoftonline.com" crossorigin />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/src/index.css" as="style" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" />
+    
+    <!-- Resource Hints for better performance -->
+    <link rel="prefetch" href="/manifest.json" />
+    
+    <!-- Single Page Apps for GitHub Pages -->
+    <!-- https://github.com/rafgraph/spa-github-pages -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tenant-find.cengizyilmaz.net" />
+    <meta property="og:title" content="Microsoft Azure & Microsoft 365 Tenant Finder | Cengiz YILMAZ" />
+    <meta property="og:description" content="Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly. Azure kiracı bulucu, Microsoft 365 kiracı arama aracı." />
+    <meta property="og:image" content="https://tenant-find.cengizyilmaz.net/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@cengizyilmazz" />
+    <meta name="twitter:title" content="Microsoft Azure & Microsoft 365 Tenant Finder | Cengiz YILMAZ" />
+    <meta name="twitter:description" content="Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly." />
+    <meta name="twitter:image" content="https://tenant-find.cengizyilmaz.net/twitter-card.jpg" />
+    
+    <!-- Alternate language versions -->
+    <link rel="alternate" hreflang="en" href="https://tenant-find.cengizyilmaz.net" />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Microsoft Azure & Microsoft 365 Tenant Finder",
+      "description": "Professional Microsoft Azure and Microsoft 365 tenant lookup tool by Microsoft MVP Cengiz YILMAZ. Find tenant IDs instantly.",
+      "url": "https://tenant-find.cengizyilmaz.net",
+      "applicationCategory": "Developer Tools",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Cengiz YILMAZ",
+        "jobTitle": "Microsoft MVP",
+        "url": "https://cengizyilmaz.net",
+        "sameAs": [
+          "https://x.com/cengizyilmazz",
+          "https://www.linkedin.com/in/cengizyilmazz/"
+        ]
+      },
+      "keywords": "Microsoft Azure tenant finder, Microsoft 365 tenant lookup, Office 365 tenant search, Azure AD tenant ID, Microsoft tenant discovery, Microsoft Graph API tool, Microsoft MVP tools, Azure Active Directory, Microsoft 365 administration, Enterprise tenant management, Cloud tenant lookup, Microsoft domain search, Azure tenant explorer, Microsoft 365 domain verification, Microsoft tenant ID finder, Cengiz YILMAZ, Azure kiracı bulucu, Microsoft 365 kiracı arama, Office 365 kiracı sorgulama",
+      "screenshot": "https://tenant-find.cengizyilmaz.net/screenshot.png",
+      "featureList": [
+        "Instant Microsoft 365 tenant ID lookup",
+        "Azure AD tenant discovery",
+        "Bulk domain processing",
+        "MX record verification",
+        "SPF record analysis",
+        "Export results in multiple formats",
+        "Real-time tenant validation"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "127"
+      }
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE1ME14Y58"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NE1ME14Y58');
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to use Microsoft Tenant Finder.</p>
+      </div>
+    </noscript>
+    <div id="root">
+      <!-- Initial loading state for better perceived performance -->
+      <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #e0e7ff 100%);">
+        <div style="text-align: center;">
+          <div style="width: 48px; height: 48px; border: 3px solid #e2e8f0; border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+          <p style="margin-top: 1rem; color: #64748b; font-family: system-ui, sans-serif;">Loading TenantFind...</p>
+        </div>
+      </div>
+      <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

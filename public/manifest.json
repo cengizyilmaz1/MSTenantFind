@@ -1,0 +1,102 @@
+{
+  "name": "TenantFind - Microsoft Tenant ID Finder",
+  "short_name": "TenantFind",
+  "description": "Professional Microsoft Azure and Office 365 tenant ID discovery tool. Find tenant information instantly.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "background_color": "#f8fafc",
+  "theme_color": "#4F46E5",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "developer", "productivity", "utilities"],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "icons": [
+    {
+      "src": "/owl-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/owl-favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/owl-favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "TenantFind Homepage"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "TenantFind Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search Tenant",
+      "short_name": "Search",
+      "description": "Search for Microsoft tenant by domain",
+      "url": "/?action=search",
+      "icons": [
+        {
+          "src": "/owl-favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Author Info",
+      "short_name": "Author",
+      "description": "Learn about the author",
+      "url": "/author",
+      "icons": [
+        {
+          "src": "/owl-favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+tenantfind",
+      "url": "/?domain=%s"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "text": "domain"
+    }
+  }
+} 
