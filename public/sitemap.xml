@@ -6,30 +6,30 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://tenant-find.cengizyilmaz.net/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://tenant-find.cengizyilmaz.net/og-image.jpg</image:loc>
-      <image:title>Microsoft Tenant Finder - Find Azure &amp; Office 365 Tenant IDs</image:title>
-      <image:caption>Professional Microsoft Azure and Microsoft 365 tenant lookup tool</image:caption>
+      <image:loc>https://tenant-find.cengizyilmaz.net/owl-favicon.svg</image:loc>
+      <image:title>TenantFind - Free Microsoft Tenant Finder | Find Azure &amp; M365 Tenant IDs</image:title>
+      <image:caption>#1 Free Tenant Finder Tool - Find Azure AD, Microsoft 365 &amp; Office 365 Tenant IDs</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://tenant-find.cengizyilmaz.net/terms</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://tenant-find.cengizyilmaz.net/privacy</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://tenant-find.cengizyilmaz.net/author</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -16,12 +16,12 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = memo(({
-  title = 'Microsoft Tenant Finder - Find Azure & Office 365 Tenant IDs',
-  description = 'Instantly discover Microsoft Azure and Office 365 tenant information for any domain. Get tenant IDs, MX records, and SPF configurations with our professional tool.',
-  keywords = 'Microsoft Tenant ID, Azure Tenant, Office 365, Microsoft 365, Tenant Finder, DNS, MX Records, SPF, Azure AD, Microsoft Graph, Entra ID',
+  title = 'TenantFind | Free Microsoft Tenant ID Finder - Azure & M365 Tenant Lookup',
+  description = 'TenantFind - #1 Free Microsoft Tenant Finder Tool. Instantly find Azure AD Tenant ID, Microsoft 365 Tenant ID, Office 365 Tenant information from any domain. Bulk lookup with MX & SPF records.',
+  keywords = 'tenant find, tenant finder, microsoft tenant finder, find tenant id, azure tenant id, microsoft 365 tenant lookup, office 365 tenant id, entra id tenant, azure ad tenant finder, tenant id lookup, m365 tenant finder, get tenant id, bulk tenant lookup, free tenant finder, microsoft tenant search',
   path = '/',
   type = 'website',
-  image = 'https://tenant-find.cengizyilmaz.net/og-image.jpg',
+  image = 'https://tenant-find.cengizyilmaz.net/owl-favicon.svg',
   author = 'Cengiz Yılmaz',
   publishedTime,
   modifiedTime,
@@ -60,26 +60,42 @@ const SEO: React.FC<SEOProps> = memo(({
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a Microsoft Tenant ID?",
+        "name": "What is TenantFind and how does it help find tenant IDs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Microsoft Tenant ID is a unique identifier (GUID) assigned to each Azure AD/Entra ID tenant. It's used to identify your organization's Microsoft 365 or Azure environment."
+          "text": "TenantFind is a free Microsoft Tenant Finder tool that instantly discovers Azure AD, Microsoft 365, and Office 365 Tenant IDs from any domain. Simply enter a domain name and get the tenant ID, MX records, and SPF configurations within seconds."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I find my Microsoft 365 Tenant ID?",
+        "name": "How do I find my Microsoft 365 Tenant ID using TenantFind?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can find your Microsoft 365 Tenant ID by entering your domain name in TenantFind. Our tool queries Microsoft's OpenID configuration endpoint to retrieve your tenant information instantly."
+          "text": "To find your Microsoft 365 Tenant ID, enter your organization's domain name (e.g., contoso.com) into TenantFind's search box. Our tenant finder tool queries Microsoft's OpenID configuration endpoint and returns your Tenant ID (GUID), tenant name, and related DNS records instantly."
         }
       },
       {
         "@type": "Question",
-        "name": "Is TenantFind free to use?",
+        "name": "Is TenantFind free to use for tenant lookup?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, TenantFind is completely free to use. You can look up tenant IDs for multiple domains and export the results in various formats."
+          "text": "Yes, TenantFind is 100% free to use. You can perform unlimited tenant ID lookups, search multiple domains in bulk (up to 100 at once), and export results in JSON, CSV, or TXT formats. No registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I find Azure AD Tenant ID from a domain name?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! TenantFind allows you to find any Azure AD (Entra ID) Tenant ID by entering the organization's domain name. The tool works for any domain configured with Microsoft 365, Azure AD, or Office 365 services."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What information does TenantFind provide besides Tenant ID?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TenantFind provides comprehensive tenant information including: Tenant ID (GUID), Tenant Name, Federation Brand Name, MX Records (mail server configuration), SPF Records (email authentication), and whether the domain uses Microsoft 365 services."
         }
       }
     ]
@@ -119,8 +135,8 @@ const SEO: React.FC<SEOProps> = memo(({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={title} />
-      <meta name="twitter:creator" content="@cengizyilmazz" />
-      <meta name="twitter:site" content="@cengizyilmazz" />
+      <meta name="twitter:creator" content="@cengizyilmaz_" />
+      <meta name="twitter:site" content="@cengizyilmaz_" />
 
       {/* Article specific meta tags */}
       {type === 'article' && (
@@ -195,9 +211,9 @@ const SEO: React.FC<SEOProps> = memo(({
             "name": author,
             "url": "https://cengizyilmaz.net",
             "sameAs": [
-              "https://x.com/cengizyilmazz",
-              "https://www.linkedin.com/in/cengizyilmazz/",
-              "https://github.com/cengizyilmaz"
+              "https://x.com/cengizyilmaz_",
+              "https://linkedin.com/in/cengizyilmazz",
+              "https://github.com/cengizyilmaz1"
             ]
           },
           "publisher": {

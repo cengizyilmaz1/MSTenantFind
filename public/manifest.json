@@ -1,7 +1,7 @@
 {
-  "name": "TenantFind - Microsoft Tenant ID Finder",
+  "name": "TenantFind - Free Microsoft Tenant Finder | Azure & M365 Tenant ID Lookup",
   "short_name": "TenantFind",
-  "description": "Professional Microsoft Azure and Office 365 tenant ID discovery tool. Find tenant information instantly.",
+  "description": "#1 Free Tenant Finder Tool - Instantly find Azure AD, Microsoft 365 & Office 365 Tenant IDs from any domain. Bulk tenant lookup with MX & SPF records.",
   "start_url": "/",
   "id": "/",
   "display": "standalone",
@@ -39,18 +39,11 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
+      "src": "/owl-favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
       "form_factor": "wide",
-      "label": "TenantFind Homepage"
-    },
-    {
-      "src": "/screenshot-mobile.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "TenantFind Mobile View"
+      "label": "TenantFind Logo"
     }
   ],
   "shortcuts": [

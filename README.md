@@ -102,5 +102,6 @@ The project is configured for GitHub Pages deployment with:
 
 **Cengiz YILMAZ** - Microsoft MVP
 - Website: [cengizyilmaz.net](https://cengizyilmaz.net)
-- Twitter: [@cengizyilmazz](https://x.com/cengizyilmazz)
-- LinkedIn: [cengizyilmaz](https://www.linkedin.com/in/cengizyilmazz/)
+- Twitter: [@cengizyilmaz_](https://x.com/cengizyilmaz_)
+- LinkedIn: [cengizyilmazz](https://linkedin.com/in/cengizyilmazz)
+- GitHub: [cengizyilmaz1](https://github.com/cengizyilmaz1)

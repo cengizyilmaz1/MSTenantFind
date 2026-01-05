@@ -50,9 +50,9 @@ const HomePage: React.FC = () => {
       <SEO 
         path="/" 
         type="website"
-        title="Microsoft Tenant Finder - Find Azure & Office 365 Tenant IDs"
-        description="Instantly discover Microsoft Azure and Office 365 tenant information for any domain. Get tenant IDs, MX records, and SPF configurations."
-        keywords="Microsoft Tenant ID, Azure Tenant, Office 365, Microsoft 365, Tenant Finder, DNS, MX Records, SPF, Entra ID"
+        title="TenantFind | Free Microsoft Tenant ID Finder - Azure & M365 Tenant Lookup Tool"
+        description="TenantFind - #1 Free Tenant Finder Tool. Instantly find Azure AD Tenant ID, Microsoft 365 Tenant ID, Office 365 Tenant ID from any domain. Bulk lookup for IT Professionals."
+        keywords="tenant find, tenant finder, microsoft tenant finder, find tenant id, azure tenant id, microsoft 365 tenant lookup, office 365 tenant id, entra id tenant finder, azure ad tenant, m365 tenant lookup, bulk tenant finder, free tenant id tool, get tenant id from domain"
       />
       <div className="min-h-screen py-12 px-4 relative overflow-hidden">
         {/* Animated background elements */}

@@ -228,13 +228,13 @@ const SearchForm: React.FC<SearchFormProps> = memo(({ className = '' }) => {
       >
         <h1 className="text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-            Microsoft Tenant Finder
+            TenantFind - Microsoft Tenant Finder
           </span>
         </h1>
         
         <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed font-medium">
-          Instantly discover Microsoft Azure and Office 365 tenant information for any domain. 
-          Get tenant IDs, MX records, and SPF configurations.
+          Free Tenant ID Finder Tool — Instantly find Azure AD, Microsoft 365 & Office 365 Tenant IDs from any domain. 
+          Bulk lookup with MX records and SPF configurations. Trusted by IT Professionals.
         </p>
       </motion.div>
 
