@@ -4,7 +4,8 @@ import {
   HiOutlineChatBubbleLeftRight,
   HiOutlineDocumentText,
   HiOutlineShieldCheck,
-  HiOutlineUser
+  HiOutlineUser,
+  HiOutlineKey
 } from 'react-icons/hi2';
 import type { IconType } from 'react-icons';
 
@@ -24,7 +25,14 @@ export const navigationLinks: NavItem[] = [
     show: 'both'
   },
   {
-    label: 'Cengiz Yılmaz',
+    label: 'Permissions',
+    path: 'https://permissions.cengizyilmaz.net',
+    icon: HiOutlineKey,
+    external: true,
+    show: 'header'
+  },
+  {
+    label: 'Blog',
     path: 'https://cengizyilmaz.net',
     icon: HiOutlineGlobeAlt,
     external: true,
