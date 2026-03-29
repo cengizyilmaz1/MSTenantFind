@@ -32,6 +32,13 @@ export const navigationLinks: NavItem[] = [
     show: 'header'
   },
   {
+    label: 'M365 Report',
+    path: 'https://m365report.cengizyilmaz.net',
+    icon: HiOutlineKey,
+    external: true,
+    show: 'header'
+  },
+  {
     label: 'Blog',
     path: 'https://cengizyilmaz.net',
     icon: HiOutlineGlobeAlt,
